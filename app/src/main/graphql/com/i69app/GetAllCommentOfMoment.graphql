@@ -1,0 +1,59 @@
+query GetAllCommentOfMoment($momentId: String!)
+{
+    allComments(momentId: $momentId) {
+        like
+        user {
+            id
+            avatar
+            {
+                id
+                url
+                user
+            }
+            username
+            fullName
+            avatarPhotos {
+                url
+                id
+                user
+            }
+        }
+        id
+        pk
+        commentDescription
+        createdDate
+        replys {
+            id
+            user {
+                id
+                username
+                fullName
+                avatarPhotos {
+                    url
+                    id
+                    user
+                }
+            }
+            commentDescription
+            momemt {
+                pk
+                like
+                comment
+                momentDescriptionPaginated
+                user {
+                    id
+                    username
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

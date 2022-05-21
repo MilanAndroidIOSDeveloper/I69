@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Search-->
+    <dimen name="search_unlock_title_margin_top">6dp</dimen>
+
+    <!--Menu items-->
+    <dimen name="menu_item_button_height">66dp</dimen>
+    <dimen name="menu_item_top_margin">16dp</dimen>
+    <dimen name="menu_container_top_margin">8dp</dimen>
+
+    <!--Settings-->
+    <dimen name="settings_buy_element_height">60dp</dimen>
+    <dimen name="settings_element_height">52dp</dimen>
+</resources>

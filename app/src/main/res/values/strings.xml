@@ -1,0 +1,200 @@
+<resources>
+    <string name="app_name">i69</string>
+    <string name="sign_in_app_name">iSixtyNine</string>
+    <string name="sign_in_app_description">Connecting Hearts</string>
+
+    <string name="search">Search</string>
+    <string name="search_drawer">SEARCH</string>
+
+
+    <!--profile-->
+    <string name="profile_complete_title">COMPLETE PROFILE</string>
+    <string name="profile_edit_title">EDIT PROFILE</string>
+    <string name="done">Done</string>
+    <string name="name_label">Name</string>
+    <string name="name_hint">Enter name</string>
+    <string name="gender_label">Gender</string>
+    <string name="age_label">Age</string>
+    <string name="height_label">Height</string>
+    <string name="work_label">Work</string>
+    <string name="work_hint">Enter your work…</string>
+    <string name="education_label">Education</string>
+    <string name="education_hint">Enter your education…</string>
+    <string name="family_plans_label">Family plans</string>
+    <string name="politic_views_label">Politic views</string>
+    <string name="ethnicity_label">Ethnicity</string>
+    <string name="religious_beliefs_label">Religious beliefs</string>
+    <string name="zodiac_sign_label">Zodiac sign</string>
+    <string name="politic_views_cell">Politic views: </string>
+    <string name="ethnicity_cell">Ethnicity: </string>
+    <string name="religious_beliefs_cell">Religious beliefs: </string>
+    <string name="zodiac_sign_cell">Zodiac sign: </string>
+    <string name="groups_label">Groups</string>
+    <string name="interests_label">Interests</string>
+    <string name="interests_for">Interest for</string>
+    <string name="music_label">MUSIC</string>
+    <string name="music">Music</string>
+    <string name="add_music_tags">Add music tags</string>
+    <string name="movies_label">MOVIES</string>
+    <string name="add_movies_tags">Add movies tags</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows_label">TV SHOWS</string>
+    <string name="add_tv_tags">Add TV shows tags</string>
+    <string name="tv_shows">TV shows</string>
+    <string name="tv_show">TV show</string>
+    <string name="sport_teams_label">SPORT TEAMS</string>
+    <string name="add_sport_teams_tags">Add sport teams tags</string>
+    <string name="sport_teams">Sport teams</string>
+    <string name="sport_team">Sport team</string>
+    <string name="photo">Photo</string>
+    <string name="add_photo">ADD PHOTO</string>
+    <string name="video" translatable="false">Video</string>
+    <string name="file" translatable="false">File</string>
+
+    <!--interests-->
+    <string name="add_custom_tags_error_message">You should enter something</string>
+    <string name="add_artist">ADD ARTIST</string>
+    <string name="add_artist_hint">Enter artist that you like</string>
+    <string name="add_movie">ADD MOVIE</string>
+    <string name="add_movie_hint">Enter movie that you like</string>
+    <string name="add_tv_show">ADD TV SHOW</string>
+    <string name="add_tv_show_hint">Enter tv show that you like</string>
+    <string name="add_sport_team">ADD SPORT TEAM</string>
+    <string name="add_sport_team_hint">Enter sport team that you like</string>
+
+
+    <string name="enter_your_gender">Enter your gender…</string>
+    <string name="enter_your_age">Enter your age…</string>
+    <string name="enter_your_politic_views">Enter your politic views…</string>
+    <string name="enter_zodiac_sign">Enter your zodiac sign…</string>
+    <string name="enter_your_ethnicity">Enter you ethnicity…</string>
+    <string name="enter_your_religious_beliefs">Enter your religious beliefs…</string>
+    <string name="enter_your_height">Enter your height…</string>
+    <string name="enter_your_family_plans">Enter your family plans…</string>
+    <string name="clear">Clear</string>
+    <string name="enter_keywords_interests">Enter keywords, interests or hobby</string>
+    <string name="search_user_by_name">Search by name</string>
+    <string name="maximum_distance">Maximum distance</string>
+    <string name="age_range">Age range</string>
+    <string name="looking_for">Looking for</string>
+    <string name="miles">miles</string>
+    <string name="personal_label">Personal</string>
+    <string name="height_range">Height range</string>
+    <string name="tags_label">Tags</string>
+    <string name="search_results">Search results</string>
+    <string name="search_unlock_feature_title">TOP UP COINS</string>
+    <string name="search_unlock_feature_description">Buy i69 coins - open new world of connections!</string>
+    <string name="random">Random</string>
+    <string name="popular">Popular</string>
+    <string name="most_active">Most Active</string>
+    <string name="no_users_found_message">Unfortunately, we couldn\'t find anyone based on your search preferences :(</string>
+    <string name="interests">Interests</string>
+    <string name="send_message">Send message</string>
+    <string name="my_profile">My profile</string>
+    <string name="no_new_matches_yet">No new matches yet. \nSearch for people now!</string>
+    <string name="messages">Messages</string>
+    <string name="hint_enter_a_message">Enter a message</string>
+    <string name="block">Block</string>
+    <string name="report">Report anonymously</string>
+    <string name="contact_us">CONTACT US</string>
+    <string name="buy_coins">BUY COINS</string>
+    <string name="buy_coins_purchase">BUY COINS</string>
+    <string name="privacy">Privacy</string>
+    <string name="privacy_drawer">PRIVACY</string>
+    <string name="settings">SETTINGS</string>
+    <string name="menu">Menu</string>
+    <string name="settings_buy">Buy coins</string>
+    <string name="settings_logout">Logout</string>
+    <string name="blocked_accounts">Blocked Accounts</string>
+    <string name="are_you_sure">Are you sure you want to delete your account?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="blocked_description">BLOCKED</string>
+    <string name="unblock">UNBLOCK</string>
+    <string name="chat_coins">Coins</string>
+    <string name="coins_left">Coins left</string>
+    <string name="coin_left">Coin left</string>
+
+    // First Chat
+    <string name="you_have_new_match">You have new match request!</string>
+    <string name="wants_to_connect_with_you">%s wants to connect with you!</string>
+    <string name="awesome_you_have_initiated">Awesome! You have initiated a chat. User will receive notification!</string>
+
+    // One to One
+    <string name="image">Image</string>
+    <string name="new_unread_messages">New Unread Messages!</string>
+    <string name="user_message" translatable="false">%s : %s</string>
+
+
+    <string name="loading">Loading…</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="not_enough_coins">Not enough coins</string>
+    <string name="dots" translatable="false">…</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="congrats_purchase">Congratulations! You get %d coins!</string>
+    <string name="search_permission">Please provide Permission for Search.</string>
+    <string name="report_accepted">Thank you! i69 has received your report.</string>
+
+    <string name="upload_image_warning">For uploading more than %d photos, you have to spend %d coins.</string>
+    <string name="user_not_available">User is currently not available for chat!</string>
+    <string name="user_coins">%d Coins</string>
+    <string name="user_coin">%d Coin</string>
+    <string name="gifts">Gifts</string>
+    <string name="real_gifts">Real Gifts</string>
+    <string name="virtual_gifts">Virtual Gifts</string>
+    <string name="coins">Coins</string>
+    <string name="buy_gift">Buy gift</string>
+    <string name="years">YEARS</string>
+    <string name="cm">CM</string>
+    <string name="moments_comment">Moments Comment</string>
+    <string name="isixtynine">ISIXTYNINE</string>
+    <string name="user_moments">User Moments</string>
+    <string name="new_user_moment">New user moment</string>
+    <string name="share_a">Share a</string>
+    <string name="moment">Moment</string>
+    <string name="share">SHARE</string>
+    <string name="whats_going_hint">What is going to share</string>
+    <string name="drag_n_drop_file">DRAG AND DROP FILE TO UPLOAD</string>
+    <string name="select_file_to_upload">SELECT FILE TO UPLOAD</string>
+    <string name="posting_a_moment_tip">Posting a moment will appear on your feed</string>
+    <string name="swipe_to_open_camera">Swipe To Open Camera</string>
+    <string name="you_cant_share_moment">You can not share a moment without picture.</string>
+    <string name="you_cant_delete_moment">User can able to delete own moments only.</string>
+    <string name="you_cant_add_empty_msg">Please add comment text.</string>
+    <string name="_or">(OR)</string>
+    <string name="feed">Feed</string>
+    <string name="story">Story</string>
+    <string name="post_comment">POST A COMMENT</string>
+    <string name="typemsg">Type Message</string>
+    <string name="itemdelete">Delete</string>
+    <string name="itemdreport">Report</string>
+    <string name="notificatins">Notificatins</string>
+    <string name="no_notification_found">No Notification found.</string>
+    <string name="profilepic">PROFILE PHOTOS</string>
+    <string name="rec_gifts">Received Gifts</string>
+    <string name="sent_gifts">Sent Gifts</string>
+
+    <string name="msg_token_fmt" translatable="false">FCM registration Token: %s</string>
+
+    <string name="default_notification_channel_id" translatable="false">i69app</string>
+
+<!--    <string name="general_channel_title" translatable="false">i69appchannel</string>-->
+
+
+    <!--
+        This is the name that users will see when interacting with this channel.
+        It should describe the category of notifications that will be sent through this channel
+     -->
+    <!-- [START fcm_default_icon_string] -->
+    <string name="default_notification_channel_name" translatable="true">i69notify</string>
+    <string name="default_notification_channel_desc" translatable="true">i69appnotification</string>
+    <string name="add_story">ADD STORY</string>
+    <string name="received_gift">Received gift</string>
+    <string name="send_gift">Send gift</string>
+    <string name="earnings">Earnings</string>
+    <string name="wallet">WALLET</string>
+    <string name="user_number">%d</string>
+</resources>

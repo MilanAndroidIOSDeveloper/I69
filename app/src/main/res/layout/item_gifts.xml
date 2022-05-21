@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="kotlin.math.UMathKt"/>
+        <variable
+            name="vm"
+            type= "com.i69app.data.models.ModelGifts.Data.AllRealGift"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/gift_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="65dp"
+            app:cardElevation="@dimen/profile_header_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name">
+
+            <FrameLayout
+                android:id="@+id/lyt_gift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/B"
+                    android:layout_width="93dp"
+                    android:layout_height="93dp"
+                    loadGiftImage="@{vm.picture}"
+                    android:src="@drawable/background_circle_button_unchecked" />
+<!--                loadImage="@{${BuildConfig.BASE_URL}/media/${vm.picture}}"-->
+
+                <ImageView
+                    android:id="@+id/BB"
+                    android:layout_width="93dp"
+                    android:layout_height="93dp"
+                    android:visibility="@{vm.isSelected ? View.VISIBLE : View.GONE}"
+                    android:src="@drawable/ic_baseline_verified_24" />
+            </FrameLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--<CheckBox
+            android:id="@+id/gift_item"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/gifts_checkbox_selector"
+            android:button="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />-->
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/label_text_size"
+            android:textStyle="normal"
+            android:text="@{vm.giftName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Green Tea" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gift_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:text="@{vm.getRoundedCost() + ` coins`}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/label_text_size"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gift_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

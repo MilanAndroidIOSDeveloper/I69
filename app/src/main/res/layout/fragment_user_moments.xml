@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/searchToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/search_toolbar_graient"
+                android:elevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/toolbarHamburger"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/menu_icons"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/toolbarLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_toolbar_69_navigate_up_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/toolbarHamburger"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/appnametext"
+
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/toolbarLogo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--            <com.google.android.material.textview.MaterialTextView-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginStart="6dp"-->
+                <!--                android:fontFamily="sans-serif-medium"-->
+                <!--                android:letterSpacing="0.2"-->
+                <!--                android:text="@string/isixtynine"-->
+                <!--                android:textAllCaps="true"-->
+                <!--                android:textColor="@color/black"-->
+                <!--                android:textStyle="bold"-->
+                <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                app:layout_constraintStart_toEndOf="@+id/toolbarLogo"-->
+                <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+                <ImageView
+                    android:id="@+id/bell"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="@string/app_name"
+                    android:padding="12dp"
+                    android:src="@drawable/notification1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circular_border"
+                    android:gravity="center"
+                    android:textSize="10sp"
+                    android:text="0"
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/bell"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll_view"
+                android:scrollbars="none"
+                android:fillViewport="true"
+                android:layout_width="0dp"
+                android:layout_marginTop="?attr/actionBarSize"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvUserStories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/C203c41"
+                        android:fadingEdge="horizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:fadingEdgeLength="@dimen/small_padding"
+                        android:orientation="horizontal"
+                        android:requiresFadingEdge="horizontal|vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_nearby_thumb" />
+                    <ImageView
+                        app:layout_constraintTop_toBottomOf="@+id/rvUserStories"
+
+                        android:id="@+id/highliter"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        app:layout_constraintTop_toBottomOf="@+id/highliter"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/rvSharedMoments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fadingEdge="vertical"
+                        android:fadingEdgeLength="@dimen/small_padding"
+                        android:orientation="vertical"
+                        android:requiresFadingEdge="horizontal|vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_shared_user_moment" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/bottom_bg"
+            android:id="@+id/giftbottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:behavior_hideable="true"
+            android:maxHeight="@dimen/_450sdp"
+            android:minHeight="@dimen/_300sdp"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtMomentRecentComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+
+                        android:text="Gifts"
+
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/giftsTabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_gravity="bottom"
+                        android:alpha="0.9"
+                        android:layout_below="@+id/txtMomentRecentComment"
+                        android:background="@color/edit_profile_chip_text"
+                        app:tabIndicatorColor="@color/colorPrimary"
+                        app:tabIndicatorHeight="3dp"
+                        android:layout_marginTop="10dp"
+                        app:tabSelectedTextColor="@color/white"
+                        app:tabTextColor="@color/white" />
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/gifts_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/giftsTabs" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/purchaseButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_above="@+id/dummy_c"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingRight="@dimen/_15sdp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/rounded_black_btn">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/sendgiftto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            app:layout_constraintTop_toTopOf="@id/purchaseButton"
+                            app:layout_constraintBottom_toBottomOf="@id/purchaseButton"
+                            android:text="Send Gift"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold"
+
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/dummy_c"
+
+                        android:layout_alignParentBottom="true"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"/>
+
+                </RelativeLayout>
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

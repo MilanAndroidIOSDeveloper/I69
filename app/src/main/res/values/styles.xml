@@ -1,0 +1,88 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <!-- enable activity transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="actionMenuTextColor">@color/colorPrimary</item>
+        <item name="android:listDivider">@color/drawer_divider_color</item>
+        <!-- if we don't specify reenter transition, by default exit transition is taken -->
+        <!-- if we don't specify return transition, by default enter transition is taken -->
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@android:transition/move</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <!-- To change the popup menu and app text color  -->
+        <item name="android:textColor">@color/black</item>
+
+        <!-- To change the background of options menu-->
+        <item name="android:itemBackground">@color/colorPrimary</item>
+
+    </style>
+
+<!--    <! – Set parent theme as app theme. &ndash;&gt;-->
+    <style name="DialogTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@color/colorPrimary</item>
+    </style>
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/background</item>
+    </style>
+
+    <style name="FullyTranslucent" parent="android:Theme.Translucent.NoTitleBar">
+        <item name="android:progressBarStyle">@style/InvisibleProgress</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="InvisibleProgress">
+        <item name="android:visibility">gone</item>
+    </style>
+
+
+    <style name="MediumTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DividerBlack" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/background_interested_in_divider</item>
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <style name="DividerAbout" parent="@style/DividerBlack">
+        <item name="android:background">@drawable/background_about_divider</item>
+    </style>
+
+    <style name="DividerSearch" parent="@style/DividerBlack">
+        <item name="android:background">@drawable/background_search_divider</item>
+    </style>
+
+    <style name="BoldMediumTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolbarDarkText" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionMenuTextColor">@color/colorPrimaryDark</item>
+    </style>
+
+</resources>

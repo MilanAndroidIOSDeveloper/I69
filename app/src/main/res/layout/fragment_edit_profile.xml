@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:chipcloud="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.i69app.data.models.User" />
+
+        <variable
+            name="defaultPicker"
+            type="com.i69app.data.remote.responses.DefaultPicker" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/toolbar_color">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/titleLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif"
+                    android:letterSpacing="0.2"
+                    android:text="@string/profile_edit_title"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:background="@color/iconGray"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/photosRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdge="horizontal"
+                android:fadingEdgeLength="@dimen/small_padding"
+                android:orientation="horizontal"
+                android:requiresFadingEdge="horizontal|vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/button_add_photo_layout" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:alpha="0.46"
+                android:background="@drawable/shadow" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_label" />
+
+                <EditText
+                    android:id="@+id/editProfileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@null"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="@string/name_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:text="@={user.fullName}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/edit_profile_text_hint_gray"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/small_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:text="@string/gender_label" />
+
+                <com.i69app.ui.views.NoDefaultSpinner
+                    android:id="@+id/genderPicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@null"
+                    android:prompt="@string/enter_your_gender"
+                    android:textSize="20sp"
+                    app:defaultPicker="@{null}"
+                    app:itemsHeightGenderRes="@{true}"
+                    app:spinnerSelectedValue="@={user.gender}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/small_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:text="@string/age_label" />
+
+                <com.i69app.ui.views.NoDefaultSpinner
+                    android:id="@+id/agePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@null"
+                    android:prompt="@string/enter_your_age"
+                    android:textSize="20sp"
+                    app:defaultPicker="@{defaultPicker.agePicker}"
+                    app:spinnerItems="@{defaultPicker.agePicker}"
+                    app:spinnerSelectedValue="@={user.age}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/small_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:text="@string/height_label" />
+
+                <com.i69app.ui.views.NoDefaultSpinner
+                    android:id="@+id/heightPicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@null"
+                    android:prompt="@string/enter_your_height"
+                    android:textSize="20sp"
+                    app:defaultPicker="@{defaultPicker.heightsPicker}"
+                    app:spinnerItems="@{defaultPicker.heightsPicker}"
+                    app:spinnerSelectedValue="@={user.height}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/work_label" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@null"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="@string/work_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:text="@={user.work}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/edit_profile_text_hint_gray"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/MediumTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/education_label" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:background="@null"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="@string/education_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:text="@={user.education}"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/edit_profile_text_hint_gray"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginTop="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/small_padding"
+                android:paddingEnd="@dimen/default_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_padding"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/family_plans_label"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/label_text_size"
+                    android:textStyle="bold" />
+
+                <com.i69app.ui.views.NoDefaultSpinner
+                    android:id="@+id/familyPlansPicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_height"
+                    android:layout_marginBottom="12dp"
+                    android:background="@null"
+                    android:prompt="@string/enter_your_family_plans"
+                    android:textSize="20sp"
+                    app:defaultPicker="@{defaultPicker.familyPicker}"
+                    app:spinnerItems="@{defaultPicker.familyPicker}"
+                    app:spinnerSelectedValue="@={user.familyPlans}" />
+
+            </LinearLayout>
+
+            <View
+                style="@style/DividerBlack"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="@dimen/default_padding"
+                android:layout_marginRight="@dimen/default_padding" />
+
+            <LinearLayout
+                android:id="@+id/groupsExpand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/edit_profile_header_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/large_padding"
+                    android:layout_marginTop="@dimen/default_padding"
+                    android:layout_marginBottom="@dimen/default_padding"
+                    android:layout_weight="1"
+                    android:text="@string/groups_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <com.i69app.ui.views.ToggleImageView
+                    android:id="@+id/toggleGroupsExpand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_padding"
+                    android:tint="@color/colorPrimary"
+                    app:checkedDrawable="@drawable/ic_expand_less"
+                    app:uncheckedDrawable="@drawable/ic_expand" />
+            </LinearLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/groups"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:el_duration="1000"
+                app:el_expanded="false"
+                app:el_parallax="0.5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/politic_views_label" />
+
+                        <com.i69app.ui.views.NoDefaultSpinner
+                            android:id="@+id/politicViewPicker"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:background="@null"
+                            android:prompt="@string/enter_your_politic_views"
+                            android:textSize="20sp"
+                            app:defaultPicker="@{defaultPicker.politicsPicker}"
+                            app:spinnerItems="@{defaultPicker.politicsPicker}"
+                            app:spinnerSelectedValue="@={user.politics}" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/ethnicity_label"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/label_text_size"
+                            android:textStyle="bold" />
+
+                        <com.i69app.ui.views.NoDefaultSpinner
+                            android:id="@+id/ethnicityPicker"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:background="@null"
+                            android:prompt="@string/enter_your_ethnicity"
+                            android:textSize="20sp"
+                            app:defaultPicker="@{defaultPicker.ethnicityPicker}"
+                            app:spinnerItems="@{defaultPicker.ethnicityPicker}"
+                            app:spinnerSelectedValue="@={user.ethnicity}" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/religious_beliefs_label" />
+
+                        <com.i69app.ui.views.NoDefaultSpinner
+                            android:id="@+id/religiousBeliefsPicker"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:background="@null"
+                            android:prompt="@string/enter_your_religious_beliefs"
+                            android:textSize="20sp"
+                            app:defaultPicker="@{defaultPicker.religiousPicker}"
+                            app:spinnerItems="@{defaultPicker.religiousPicker}"
+                            app:spinnerSelectedValue="@={user.religion}" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/zodiac_sign_label" />
+
+                        <com.i69app.ui.views.NoDefaultSpinner
+                            android:id="@+id/zodiacSignPicker"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginBottom="12dp"
+                            android:background="@null"
+                            android:prompt="@string/enter_zodiac_sign"
+                            android:textSize="20sp"
+                            app:defaultPicker="@{defaultPicker.zodiacSignPicker}"
+                            app:spinnerItems="@{defaultPicker.zodiacSignPicker}"
+                            app:spinnerSelectedValue="@={user.zodiacSign}" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <LinearLayout
+                android:id="@+id/interestsExpand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/edit_profile_header_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/large_padding"
+                    android:layout_marginTop="@dimen/default_padding"
+                    android:layout_marginBottom="@dimen/default_padding"
+                    android:layout_weight="1"
+                    android:text="@string/interests_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <com.i69app.ui.views.ToggleImageView
+                    android:id="@+id/toggleInterestsExpand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_padding"
+                    android:tint="@color/colorPrimary"
+                    app:checkedDrawable="@drawable/ic_expand_less"
+                    app:uncheckedDrawable="@drawable/ic_expand" />
+            </LinearLayout>
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/interests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:el_duration="1000"
+                app:el_expanded="true"
+                app:el_parallax="0.5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/music_label" />
+
+                        <com.i69app.ui.views.InterestsView
+                            android:id="@+id/music"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="@dimen/half_default_padding"
+                            chipcloud:allCaps="true"
+                            chipcloud:gravity="left|center_horizontal"
+                            chipcloud:minHorizontalSpacing="@dimen/small_padding"
+                            chipcloud:selectMode="none"
+                            chipcloud:verticalSpacing="@dimen/default_padding" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/movies_label" />
+
+                        <com.i69app.ui.views.InterestsView
+                            android:id="@+id/movies"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="@dimen/half_default_padding"
+                            chipcloud:allCaps="true"
+                            chipcloud:deselectedColor="@android:color/white"
+                            chipcloud:deselectedFontColor="@color/colorPrimary"
+                            chipcloud:gravity="left|center_horizontal"
+                            chipcloud:minHorizontalSpacing="@dimen/small_padding"
+                            chipcloud:selectMode="none"
+                            chipcloud:textSize="14sp"
+                            chipcloud:verticalSpacing="@dimen/default_padding" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/tv_shows_label" />
+
+                        <com.i69app.ui.views.InterestsView
+                            android:id="@+id/tvShows"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="@dimen/half_default_padding"
+                            chipcloud:allCaps="true"
+                            chipcloud:deselectedColor="@android:color/white"
+                            chipcloud:deselectedFontColor="@color/colorPrimary"
+                            chipcloud:gravity="left"
+                            chipcloud:minHorizontalSpacing="@dimen/small_padding"
+                            chipcloud:selectMode="none"
+                            chipcloud:selectedColor="@android:color/white"
+                            chipcloud:selectedFontColor="@color/colorPrimary"
+                            chipcloud:textSize="14sp"
+                            chipcloud:verticalSpacing="@dimen/default_padding" />
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/DividerBlack"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginRight="@dimen/default_padding" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/default_padding"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="@dimen/default_padding"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/small_padding"
+                        android:paddingEnd="@dimen/default_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/MediumTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/small_padding"
+                            android:text="@string/sport_teams_label" />
+
+                        <com.i69app.ui.views.InterestsView
+                            android:id="@+id/sportTeams"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="@dimen/half_default_padding"
+                            chipcloud:allCaps="true"
+                            chipcloud:deselectedColor="@android:color/white"
+                            chipcloud:deselectedFontColor="@color/colorPrimary"
+                            chipcloud:gravity="left"
+                            chipcloud:minHorizontalSpacing="@dimen/small_padding"
+                            chipcloud:selectMode="none"
+                            chipcloud:selectedColor="@android:color/white"
+                            chipcloud:selectedFontColor="@color/colorPrimary"
+                            chipcloud:textSize="14sp"
+                            chipcloud:verticalSpacing="@dimen/default_padding" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

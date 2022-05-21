@@ -1,0 +1,33 @@
+mutation Reportonmoment($momentId: ID!,$reportDes: String!)
+{
+    reportMoment(momentId: $momentId, ReportMsg: $reportDes)
+    {
+        report
+        {
+            id
+
+            momemt
+            {
+                id
+                pk
+                momentDescriptionPaginated
+
+            },
+            user
+            {
+                id
+                username
+                email
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

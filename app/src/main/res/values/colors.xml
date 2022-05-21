@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f3d27a</color>
+    <color name="colorPrimaryDark">#1b1d1f</color>
+    <color name="colorAccent">#815ef0</color>
+    <color name="textSubTitle">#474747</color>
+    <color name="prmotGrey">#A7A7A7</color>
+    <color name="lightGray">#FAFAFA</color>
+    <color name="iconGray">#8C8C8C</color>
+    <color name="wheat">#FDDE88</color>
+    <color name="blockedRed">#f33806</color>
+    <color name="no_default_spinner_background_color">#967F47</color>
+    <color name="tab_layout_background">#86000000</color>
+    <color name="black_t">#66000000</color>
+    <color name="commentbg">#284551</color>
+
+    <color name="commentbg1">#66FF0000</color>
+
+    <color name="main_theme_gradient_default_end">#ffe088</color>
+    <color name="main_theme_gradient_default_start">#b48e33</color>
+    <color name="main_theme_gradient_pressed_end">#ffe088</color>
+    <color name="main_theme_gradient_pressed_start">#c7a248</color>
+    <color name="toolbar_color">#212427</color>
+    <color name="container_color">#373a3e</color>
+    <color name="drawer_divider_color">#cc000000</color>
+
+
+    <!--Interested In-->
+    <color name="interested_in_toolbar_text">#ffffff</color>
+    <color name="interested_in_description_background">#2c2f32</color>
+    <color name="interested_in_description_text">#ffffff</color>
+    <color name="interested_in_divider_shadow">#eac971</color>
+
+    <!--Search Unlock-->
+    <color name="search_unlock_text">#373a3e</color>
+
+    <!--Edit Profile-->
+    <color name="edit_profile_photo_list_background">#2c2f32</color>
+    <color name="edit_profile_text_hint_gray">#FFFFFF</color>
+    <color name="edit_profile_header_background">#26282b</color>
+    <color name="edit_profile_chip_text">#1b1d1f</color>
+
+    <!--Welcome-->
+    <color name="welcome_description_text">#80ffffff</color>
+    <color name="welcome_button_text">#222529</color>
+
+    <!-- User Profile -->
+    <color name="user_toolbar_parallax">#9FFFFFFF</color>
+    <color name="user_tab_idle_text">#f3d27a</color>
+    <color name="user_tab_selected_text">#80ffffff</color>
+    <color name="profile_header_background">#2F000000</color>
+    <color name="gifts_toolbar_background">#75000000</color>
+    <color name="gifts_pager_background">#52000000</color>
+    <color name="check_mark_overlay_color">#B99A9A9A</color>
+
+    <!--MenuFragment-->
+    <color name="menu_button_checked_background">#1b1d1f</color>
+    <color name="menu_button_unchecked_background">@color/container_color</color>
+
+    <!--SearchFragment-->
+    <color name="search_seek_bar_progress">@color/colorPrimary</color>
+    <color name="search_seek_bar_default">#1b1d1f</color>
+    <color name="search_text">#333333</color>
+    <color name="search_header_background">#26282b</color>
+
+    <!-- Messenger chat-->
+    <color name="messenger_bar_background">#212427</color>
+    <color name="messenger_message_text_color">#1b1d1f</color>
+    <color name="messenger_time_text_color">#828588</color>
+
+    <!--Blocked Users-->
+    <color name="blocked_item_color">#1b1d1f</color>
+
+    <!--Purchase coins-->
+    <color name="purchase_item_background_color">#1D2024</color>
+    <color name="purchase_price_text_color">#222529</color>
+
+    <!-- MessageList-->
+    <color name="message_list_navigate_arrow_color">#828588</color>
+    <color name="message_list_text_title_color_1">@color/white</color>
+    <color name="message_list_text_title_color_2">#1b1d1f</color>
+    <color name="message_list_text_title_color_3">#1b1d1f</color>
+    <color name="message_list_text_title_color_4">#1b1d1f</color>
+    <color name="message_list_text_title_color_5">#1b1d1f</color>
+    <color name="message_list_description_color_1">@color/white</color>
+    <color name="message_list_description_color_2">#828588</color>
+    <color name="message_list_description_color_3">#828588</color>
+    <color name="message_list_description_color_4">#828588</color>
+    <color name="message_list_description_color_5">#828588</color>
+    <color name="message_list_container_1">#828588</color>
+    <color name="message_list_container_2">@color/white</color>
+    <color name="message_list_container_3">@color/white</color>
+    <color name="message_list_container_4">@color/white</color>
+    <color name="message_list_container_5">@color/white</color>
+
+    <!--Settings-->
+    <color name="settings_buy_next_tint_color">#212427</color>
+    <color name="settings_buy_text_color">#1b1d1f</color>
+    <color name="settings_logout_block_color">#212427</color>
+
+    <!-- CHIPS library-->
+    <color name="chip">#f3d27a</color>
+    <color name="white">#ffffff</color>
+
+    <color name="colorPrimaryPix">@color/colorPrimary</color>
+    <color name="toolbar_search_color">#D5B25F</color>
+
+    <!--USER-MOMENTS-->
+    <color name="alpha_grey_color">#60000000</color>
+    <color name="C203c41">#95203c41</color>
+    <color name="C053440">#90053440</color>
+    <color name="C001823">#001823</color>
+    <color name="C011f2a">#95011f2a</color>
+    <color name="C707b81">#95707b81</color>
+    <color name="Cfcfcfc">#95fcfcfc</color>
+
+</resources>

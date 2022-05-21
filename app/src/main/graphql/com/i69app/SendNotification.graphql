@@ -1,0 +1,14 @@
+mutation SendNotification($userId: UUID!,$notificationSetting: String!,$data: GenericScalar){
+    sendNotification(userId:$userId, notificationSetting:$notificationSetting,data:$data){
+        sent
+    }
+}
+
+
+
+
+
+
+
+
+

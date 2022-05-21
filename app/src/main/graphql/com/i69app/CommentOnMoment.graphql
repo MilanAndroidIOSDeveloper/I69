@@ -1,0 +1,32 @@
+mutation commentonmoment($momentId: ID!,$momentDes: String!)
+{
+    commentMoment(momentId:$momentId, commentDescription: $momentDes )
+    {
+        comment
+        {
+            id
+            pk
+            commentDescription
+            momemt
+            {
+                pk
+                id
+                like
+                comment
+            }
+            user
+            {
+                id
+                username
+                email
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

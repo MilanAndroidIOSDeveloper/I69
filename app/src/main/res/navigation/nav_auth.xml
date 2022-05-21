@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth"
+    app:startDestination="@+id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.i69app.ui.screens.auth.login.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_interested_in"
+            app:destination="@id/interested_in_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/interested_in_fragment"
+        android:name="com.i69app.ui.screens.auth.profile.InterestedInSignUpFragment"
+        tools:layout="@layout/fragment_interested_in">
+        <action
+            android:id="@+id/action_interested_in_to_select_tags"
+            app:destination="@id/select_tags_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/select_tags_fragment"
+        android:name="com.i69app.ui.screens.auth.profile.SelectTagsSignUpFragment"
+        tools:layout="@layout/fragment_select_tags">
+        <action
+            android:id="@+id/action_select_tags_to_about_setup"
+            app:destination="@id/about_setup_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/about_setup_fragment"
+        android:name="com.i69app.ui.screens.auth.profile.AboutProfileFragment"
+        tools:layout="@layout/fragment_about_profile">
+        <action
+            android:id="@+id/action_about_setup_to_complete_profile"
+            app:destination="@id/complete_profile_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/complete_profile_fragment"
+        android:name="com.i69app.ui.screens.auth.profile.CompleteProfileFragment"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_profile_complete_to_welcome"
+            app:destination="@id/welcome_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/actionGoToPurchaseFragment"
+            app:destination="@id/purchaseFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="com.i69app.ui.screens.main.coins.PurchaseFragment"
+        android:label="@string/buy_coins"
+        tools:layout="@layout/fragment_purchase" />
+    <fragment
+        android:id="@+id/welcome_fragment"
+        android:name="com.i69app.ui.screens.auth.profile.WelcomeFragment"
+        tools:layout="@layout/fragment_welcome" />
+
+</navigation>

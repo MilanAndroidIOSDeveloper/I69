@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/all_round_shared_moment_shape">
+
+        <ImageView
+            android:id="@+id/notificationIconBell"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_notifications" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNotificationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="290dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="6dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="start"
+            tools:text="Coins Gifted"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/notificationIconBell" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNotificationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="6dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="start"
+            tools:text="13:45"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/txtNotificationTitle"
+            app:layout_constraintStart_toEndOf="@+id/txtNotificationTitle" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNotificationBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="start"
+            tools:text="Now you have 300 coins in your account"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notificationIconBell"
+            app:layout_constraintStart_toStartOf="@+id/notificationIconBell" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,1738 @@
+type Query {
+  allGift: [GiftType1]
+
+  allUserGifts(before: String, after: String, first: Int, last: Int, user_Id: UUID, receiver_Id: UUID): GiftpurchaseTypeConnection
+
+  allRealGift: [GiftType1]
+
+  allVirtualGift: [GiftType1]
+
+  currentUserMoments: [MomentsTyps]
+
+  allMoments: [MomentsTyps]
+
+  currentUserStories: [StoryType]
+
+  allUserStories(before: String, after: String, first: Int, last: Int, user_Id: UUID, id: ID, pk: String): StoryTypeConnection
+
+  allComments(momentId: String!): [CommentType]
+
+  allUserMoments(before: String, after: String, first: Int, last: Int, user_Id: UUID, id: ID, pk: String): MomentsTypsConnection
+
+  allUserComments(before: String, after: String, first: Int, last: Int, momemt_Id: ID, id: ID, pk: String): CommentTypeConnection
+
+  usersOnline: [isOnlineObj]
+
+  isOnline(id: String!): OnlineObj
+
+  lastLoginTime(fromTime: String!, toTime: String!): [isLastLoginObj]
+
+  lastLogin(id: String!): lastLoginObj
+
+  blockedUsers: [blockedUsers]
+
+  coinSettings: [CoinSettingType]
+
+  defaultPicker: AllPickers
+
+  me: ChatUserType
+
+  users: [UserType]
+
+  userSearch(search: String, first: Int, skip: Int): [ChatUserType]
+
+  rooms(before: String, after: String, first: Int, last: Int, lastModified: DateTime, name: String, userId: ID, target: ID): RoomTypeConnection
+
+  room(id: ID): RoomType
+
+  messages(id: ID, before: String, after: String, first: Int, last: Int, content: String, read: DateTime, timestamp: DateTime): MessageTypeConnection
+
+  notifications(before: String, after: String, first: Int, last: Int, pk: String): NotificationTypeConnection
+
+  notificationSettings: [NotificationSettingType]
+
+  unseenCount: Int
+
+  user(id: String!): UserType
+
+  """
+  Search users based on their age, interest, height or gender
+  """
+  randomUsers(interestedIn: Int!, minHeight: Int, maxHeight: Int, id: String, limit: Int, minAge: Int, maxAge: Int, latitude: Float, longitude: Float, familyPlan: Int, maxDistance: Int, politics: Int, religious: Int, zodiacSign: Int, searchKey: String): [UserType]
+
+  """
+  Search users based on their age, interest, height or gender
+  """
+  popularUsers(interestedIn: Int!, minHeight: Int, maxHeight: Int, id: String, limit: Int, minAge: Int, maxAge: Int, latitude: Float, longitude: Float, familyPlan: Int, maxDistance: Int, politics: Int, religious: Int, zodiacSign: Int, searchKey: String): [UserType]
+
+  """
+  Search users based on their age, interest, height or gender
+  """
+  mostActiveUsers(interestedIn: Int!, minHeight: Int, maxHeight: Int, id: String, limit: Int, minAge: Int, maxAge: Int, latitude: Float, longitude: Float, familyPlan: Int, maxDistance: Int, politics: Int, religious: Int, zodiacSign: Int, searchKey: String): [UserType]
+
+  broadcast: BroadcastType
+  broadcastMsgs(first: Int, skip: Int, before: String, after: String, last: Int, byUserId: ID, content: String, timestamp: DateTime): BroadcastMsgsTypeConnection
+  firstmessage: FirstMessageType
+  firstmessageMsgs(first: Int, skip: Int, before: String, after: String, last: Int, byUserId: ID, content: String, timestamp: DateTime): FirstMessageMsgsTypeConnection
+}
+
+type BroadcastMsgsTypeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [BroadcastMsgsTypeEdge]!
+}
+
+"""A Relay edge containing a `BroadcastMsgsType` and its cursor."""
+type BroadcastMsgsTypeEdge {
+  """The item at the end of the edge"""
+  node: BroadcastMsgsType
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type BroadcastMsgsType implements Node {
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  byUserId: UserType!
+
+  """"""
+  content: String!
+
+  """"""
+  timestamp: DateTime!
+}
+
+type FirstMessageMsgsTypeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [FirstMessageMsgsTypeEdge]!
+}
+
+"""A Relay edge containing a `FirstMessageMsgsType` and its cursor."""
+type FirstMessageMsgsTypeEdge {
+  """The item at the end of the edge"""
+  node: FirstMessageMsgsType
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type FirstMessageMsgsType implements Node {
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  byUserId: UserType!
+
+  """"""
+  content: String!
+
+  """"""
+  timestamp: DateTime!
+}
+
+type BroadcastType {
+  broadcastContent: String
+  broadcastTimestamp: String
+  unread: String
+}
+
+type FirstMessageType {
+  firstmessageContent: String
+  firstmessageTimestamp: String
+  unread: String
+}
+
+type GiftType1 {
+  id: ID!
+
+  giftName: String!
+
+  cost: Float!
+
+  picture: String!
+
+  type: GiftType!
+
+  giftForGiftpurchase(before: String, after: String, first: Int, last: Int, user_Id: UUID, receiver_Id: UUID): GiftpurchaseTypeConnection!
+
+  url: String
+}
+
+"""
+An enumeration.
+"""
+enum GiftType {
+  """
+  real_gift
+  """
+  REAL
+
+  """
+  virtual_gift
+  """
+  VIRTUAL
+}
+
+type GiftpurchaseTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [GiftpurchaseTypeEdge]!
+}
+
+"""
+The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.
+"""
+type PageInfo {
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: String
+
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: String
+}
+
+"""
+A Relay edge containing a `GiftpurchaseType` and its cursor.
+"""
+type GiftpurchaseTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: GiftpurchaseType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type GiftpurchaseType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  user: UserType!
+
+  gift: GiftType1!
+
+  receiver: UserType
+
+  purchasedOn: DateTime
+
+  pk: Int
+}
+
+"""
+An object with an ID
+"""
+interface Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+}
+
+type UserType {
+  avatarIndex: Int!
+
+  avatarPhotos: [UserPhotoType]
+
+  id: String
+
+  username: String
+
+  fullName: String
+
+  email: String
+
+  gender: Int
+
+  about: String
+
+  location: [Float]
+
+  isOnline: Boolean
+
+  familyPlans: Int
+
+  age: Int
+
+  tags: [Int]
+
+  politics: Int
+
+  purchaseCoins: Int
+
+  giftCoins: Int
+
+  coins: Int
+
+  zodiacSign: Int
+
+  height: Int
+
+  photosQuota: Int
+
+  interestedIn: [Int]
+
+  ethinicity: Int
+
+  religion: Int
+
+  blockedUsers: [blockedUsersResponse]
+
+  education: String
+
+  music: [String]
+
+  tvShows: [String]
+
+  sportsTeams: [String]
+
+  movies: [String]
+
+  work: String
+
+  books: [String]
+
+  avatar: UserPhotoType
+
+  likes: [likedUsersResponse]
+
+  lastSeen: String
+
+  online: Boolean
+
+  receivedGifts: [GiftpurchaseType]
+}
+
+type UserPhotoType {
+  id: ID!
+
+  user: String
+
+  url: String
+}
+
+type blockedUsersResponse {
+  avatarPhotos: [UserPhotoType]
+
+  id: String
+
+  username: String
+
+  fullName: String
+}
+
+type likedUsersResponse {
+  avatarPhotos: [UserPhotoType]
+
+  id: String
+
+  username: String
+
+  fullName: String
+}
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+"""
+Leverages the internal Python implmeentation of UUID (uuid.UUID) to provide native UUID objects
+in fields, resolvers and input.
+"""
+scalar UUID
+
+type MomentsTyps implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  user: UserTypeone
+
+  Title: String
+
+  momentDescription: String!
+
+  createdDate: DateTime!
+
+  file: String
+
+  pk: Int
+
+  like: Int
+
+  comment: Int
+
+  momentDescriptionPaginated(width: Int, characterSize: Int): [String]
+}
+
+type UserTypeone {
+  giftCoins: Int!
+
+  purchaseCoins: Int!
+
+  lastLogin: DateTime
+
+  """
+  Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+  """
+  username: String!
+
+  firstName: String!
+
+  lastName: String!
+
+  """
+  Designates whether the user can log into this admin site.
+  """
+  isStaff: Boolean!
+
+  """
+  Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
+  """
+  isActive: Boolean!
+
+  dateJoined: DateTime!
+
+  id: UUID!
+
+  email: String!
+
+  twitter: String!
+
+  fullName: String!
+
+  gender: UserGender
+
+  about: String!
+
+  location: String!
+
+  isOnline: Boolean!
+
+  familyPlans: UserFamilyplans
+
+  politics: UserPolitics
+
+  giftCoinsDate: DateTime
+
+  purchaseCoinsDate: DateTime
+
+  zodiacSign: Int
+
+  interestedIn: String
+
+  ethinicity: UserEthinicity
+
+  religion: UserReligion
+
+  blockedUsers: [UserType!]!
+
+  isBlocked: Boolean!
+
+  education: String
+
+  work: String
+
+  likes: [UserType!]!
+
+  photosQuota: Int!
+
+  avatarIndex: Int!
+
+  ownedBy: [UserType!]!
+
+  onesignalPlayerId: String
+
+  createdAt: DateTime
+
+  updatedAt: DateTime
+
+  blockedBy: [UserType!]!
+
+  fakeUsers: [UserType!]!
+
+  avatarPhotos: [UserPhotoType!]!
+
+  userForGiftpurchase(before: String, after: String, first: Int, last: Int, user_Id: UUID, receiver_Id: UUID): GiftpurchaseTypeConnection!
+
+  receiverForGiftpurchase(before: String, after: String, first: Int, last: Int, user_Id: UUID, receiver_Id: UUID): GiftpurchaseTypeConnection!
+
+  userLikes(before: String, after: String, first: Int, last: Int): GenericLikeTypeConnection!
+
+  userComments(before: String, after: String, first: Int, last: Int): GenericCommentTypeConnection!
+
+  storySet(before: String, after: String, first: Int, last: Int, user_Id: UUID, id: ID, pk: String): StoryTypeConnection!
+
+  UserForMoments(before: String, after: String, first: Int, last: Int, user_Id: UUID, id: ID, pk: String): MomentsTypsConnection!
+
+  UserForLike: [LikeType!]!
+
+  UserForComment(before: String, after: String, first: Int, last: Int, momemt_Id: ID, id: ID, pk: String): CommentTypeConnection!
+
+  likers: [CommentLikeType!]!
+
+  UserForReport: [ReportType!]!
+
+  User1(before: String, after: String, first: Int, last: Int): RoomTypeConnection!
+
+  User2(before: String, after: String, first: Int, last: Int): RoomTypeConnection!
+
+  Sender(before: String, after: String, first: Int, last: Int): MessageTypeConnection!
+
+  notificationSet(before: String, after: String, first: Int, last: Int, pk: String): NotificationTypeConnection!
+
+  notificationSender(before: String, after: String, first: Int, last: Int, pk: String): NotificationTypeConnection!
+
+  """
+  Designates that this user has all permissions without explicitly assigning them.
+  """
+  isSuperuser: Boolean!
+
+  avatar: UserPhotoType
+}
+
+"""
+An enumeration.
+"""
+enum UserGender {
+  """
+  Male
+  """
+  A_0
+
+  """
+  Female
+  """
+  A_1
+
+  """
+  Prefer not to say
+  """
+  A_2
+}
+
+"""
+An enumeration.
+"""
+enum UserFamilyplans {
+  """
+  Don’t want kids
+  """
+  A_0
+
+  """
+  Want kids
+  """
+  A_1
+
+  """
+  Open to kids
+  """
+  A_2
+
+  """
+  Have kids
+  """
+  A_3
+
+  """
+  Prefer not to say
+  """
+  A_4
+
+  """
+  Je ne veux pas d'enfants
+  """
+  A_5
+
+  """
+  Je veux des enfants
+  """
+  A_6
+
+  """
+  Ouvert aux enfants
+  """
+  A_7
+
+  """
+  J'ai des enfants
+  """
+  A_8
+
+  """
+  Je préfère ne rien dire
+  """
+  A_9
+}
+
+"""
+An enumeration.
+"""
+enum UserPolitics {
+  """
+  Liberal
+  """
+  A_0
+
+  """
+  Liberal
+  """
+  A_1
+
+  """
+  Conservative
+  """
+  A_2
+
+  """
+  Other
+  """
+  A_3
+
+  """
+  Prefer Not to Say
+  """
+  A_4
+
+  """
+  Libéral
+  """
+  A_5
+
+  """
+  Modéré
+  """
+  A_6
+
+  """
+  Conservateur
+  """
+  A_7
+
+  """
+  Autre
+  """
+  A_8
+
+  """
+  Je préfère ne rien dire
+  """
+  A_9
+}
+
+"""
+An enumeration.
+"""
+enum UserEthinicity {
+  """
+  American Indian
+  """
+  A_0
+
+  """
+  Black/ African Descent
+  """
+  A_1
+
+  """
+  East Asian
+  """
+  A_2
+
+  """
+  Hispanic / Latino
+  """
+  A_3
+
+  """
+  Middle Eastern
+  """
+  A_4
+
+  """
+  Pacific Islander
+  """
+  A_5
+
+  """
+  South Asian
+  """
+  A_6
+
+  """
+  White / Caucasian
+  """
+  A_7
+
+  """
+  Other
+  """
+  A_8
+
+  """
+  Prefer Not to Say
+  """
+  A_9
+
+  """
+  Amérindien
+  """
+  A_10
+
+  """
+  Noir / Afro Descendant
+  """
+  A_11
+
+  """
+  Asie de L'Est
+  """
+  A_12
+
+  """
+  Hispanique / latino
+  """
+  A_13
+
+  """
+  Moyen-Orient
+  """
+  A_14
+
+  """
+  Insulaire du Pacifique
+  """
+  A_15
+
+  """
+  Sud-Asiatique
+  """
+  A_16
+
+  """
+  Blanc / Caucasien
+  """
+  A_17
+
+  """
+  Autre
+  """
+  A_18
+
+  """
+  Je préfère ne rien dire
+  """
+  A_19
+}
+
+"""
+An enumeration.
+"""
+enum UserReligion {
+  """
+  Agnostic
+  """
+  A_0
+
+  """
+  Atheist
+  """
+  A_1
+
+  """
+  Buddhist
+  """
+  A_2
+
+  """
+  Catholic
+  """
+  A_3
+
+  """
+  Christian
+  """
+  A_4
+
+  """
+  Hindu
+  """
+  A_5
+
+  """
+  Jewish
+  """
+  A_6
+
+  """
+  Muslim
+  """
+  A_7
+
+  """
+  Spiritual
+  """
+  A_8
+
+  """
+  Other
+  """
+  A_9
+
+  """
+  Prefer Not to Say
+  """
+  A_10
+
+  """
+  Prefer Not to Say
+  """
+  A_10_11
+
+  """
+  Athée
+  """
+  A_11
+
+  """
+  Bouddhiste
+  """
+  A_12
+
+  """
+  Catholique
+  """
+  A_13
+
+  """
+  Chrétien
+  """
+  A_14
+
+  """
+  Hindou
+  """
+  A_15
+
+  """
+  Juif
+  """
+  A_16
+
+  """
+  Musulman
+  """
+  A_17
+
+  """
+  Spirituel
+  """
+  A_18
+
+  """
+  Autre
+  """
+  A_19
+
+  """
+  Je préfère ne rien dire
+  """
+  A_20
+}
+
+type GenericLikeTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [GenericLikeTypeEdge]!
+}
+
+"""
+A Relay edge containing a `GenericLikeType` and its cursor.
+"""
+type GenericLikeTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: GenericLikeType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type GenericLikeType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  objectId: Int!
+
+  user: UserType!
+
+  pk: Int
+}
+
+type GenericCommentTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [GenericCommentTypeEdge]!
+}
+
+"""
+A Relay edge containing a `GenericCommentType` and its cursor.
+"""
+type GenericCommentTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: GenericCommentType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type GenericCommentType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  objectId: Int!
+
+  user: UserType!
+
+  commentDescription: String
+
+  createdDate: DateTime
+
+  pk: Int
+
+  replys(before: String, after: String, first: Int, last: Int): GenericReplyTypeConnection
+}
+
+type GenericReplyTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [GenericReplyTypeEdge]!
+}
+
+"""
+A Relay edge containing a `GenericReplyType` and its cursor.
+"""
+type GenericReplyTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: GenericReplyType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type GenericReplyType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  objectId: Int!
+
+  user: UserType!
+
+  commentDescription: String
+
+  createdDate: DateTime
+
+  pk: Int
+}
+
+type StoryTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [StoryTypeEdge]!
+}
+
+"""
+A Relay edge containing a `StoryType` and its cursor.
+"""
+type StoryTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: StoryType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type StoryType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  user: UserTypeone
+
+  createdDate: DateTime!
+
+  file: String!
+
+  thumbnail: String
+
+  pk: Int
+
+  likes(before: String, after: String, first: Int, last: Int): GenericLikeTypeConnection
+
+  likesCount: Int
+
+  commentsCount: Int
+
+  comments(before: String, after: String, first: Int, last: Int): GenericCommentTypeConnection
+
+  fileType: String
+}
+
+type MomentsTypsConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [MomentsTypsEdge]!
+}
+
+"""
+A Relay edge containing a `MomentsTyps` and its cursor.
+"""
+type MomentsTypsEdge {
+  """
+  The item at the end of the edge
+  """
+  node: MomentsTyps
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type LikeType {
+  id: ID!
+
+  user: UserType!
+
+  momemt: MomentsTyps!
+}
+
+type CommentTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [CommentTypeEdge]!
+}
+
+"""
+A Relay edge containing a `CommentType` and its cursor.
+"""
+type CommentTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: CommentType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type CommentType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  user: UserType!
+
+  commentDescription: String!
+
+  momemt: MomentsTyps!
+
+  createdDate: DateTime
+
+  pk: Int
+
+  replys: [ReplyType]
+
+  like: Int
+}
+
+type ReplyType implements Node {
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  user: UserType!
+
+  commentDescription: String!
+
+  momemt: MomentsTyps!
+
+  createdDate: DateTime
+
+  replyTo: CommentType
+}
+
+type CommentLikeType {
+  id: ID!
+
+  user: UserType!
+
+  comment: CommentType!
+}
+
+type ReportType {
+  id: ID!
+
+  user: UserType!
+
+  ReportMsg: String!
+
+  momemt: MomentsTyps!
+}
+
+type RoomTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [RoomTypeEdge]!
+}
+
+"""
+A Relay edge containing a `RoomType` and its cursor.
+"""
+type RoomTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: RoomType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type RoomType implements Node {
+  id: ID!
+  name: String!
+  userId: UserType!
+  target: UserType!
+  lastModified: DateTime
+  deleted: Int!
+  messageSet(
+    before: String
+    after: String
+    first: Int
+    last: Int
+  ): MessageTypeConnection!
+  unread: String
+}
+
+type MessageTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [MessageTypeEdge]!
+}
+
+"""
+A Relay edge containing a `MessageType` and its cursor.
+"""
+type MessageTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: MessageType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type MessageType implements Node {
+  id: ID!
+
+  roomId: RoomType!
+
+  userId: UserType!
+
+  content: String!
+
+  timestamp: DateTime!
+
+  read: DateTime
+}
+
+type NotificationTypeConnection {
+  """
+  Pagination data for this connection.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Contains the nodes in this connection.
+  """
+  edges: [NotificationTypeEdge]!
+}
+
+"""
+A Relay edge containing a `NotificationType` and its cursor.
+"""
+type NotificationTypeEdge {
+  """
+  The item at the end of the edge
+  """
+  node: NotificationType
+
+  """
+  A cursor for use in pagination
+  """
+  cursor: String!
+}
+
+type NotificationType implements Node {
+  user: UserType!
+
+  priority: Int
+
+  createdDate: DateTime
+
+  appUrl: String
+
+  sender: UserType
+
+  seen: Boolean!
+
+  notificationSetting: NotificationSettingType
+
+  notificationBody: String
+
+  data: String
+
+  """
+  The ID of the object.
+  """
+  id: ID!
+
+  pk: Int
+}
+
+type NotificationSettingType {
+  id: String!
+
+  title: String!
+
+  notificationSet(before: String, after: String, first: Int, last: Int, pk: String): NotificationTypeConnection!
+}
+
+type isOnlineObj {
+  id: String
+
+  isOnline: Boolean
+
+  username: String
+}
+
+type OnlineObj {
+  isOnline: Boolean
+}
+
+type isLastLoginObj {
+  id: String
+
+  username: String
+
+  lastLogin: String
+}
+
+type lastLoginObj {
+  id: String
+
+  username: String
+
+  lastLogin: String
+}
+
+type blockedUsers {
+  id: String
+
+  username: String
+}
+
+type CoinSettingType {
+  id: ID!
+
+  method: String!
+
+  coinsNeeded: Int!
+}
+
+type AllPickers {
+  agePicker: [ageObj]
+
+  ethnicityPicker: [ethnicityObj]
+
+  familyPicker: [familyObj]
+
+  genderPicker: [genderObj]
+
+  heightsPicker: [heightObj]
+
+  searchGendersPicker: [searchGenderObj]
+
+  politicsPicker: [politicsObj]
+
+  religiousPicker: [religiousObj]
+
+  tagsPicker: [tagsObj]
+
+  zodiacSignPicker: [zodiacSignObj]
+
+  configPicker: [configObj]
+}
+
+type ageObj {
+  id: Int
+
+  value: Int
+
+  valueFr: Int
+}
+
+type ethnicityObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type familyObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type genderObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type heightObj {
+  id: Int
+
+  value: Int
+
+  valueFr: Int
+}
+
+type searchGenderObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type politicsObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type religiousObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type tagsObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type zodiacSignObj {
+  id: Int
+
+  value: String
+
+  valueFr: String
+}
+
+type configObj {
+  id: Int
+
+  message: String
+
+  imageMessage: String
+
+  avatarPhoto: Int
+}
+
+type ChatUserType implements Node {
+  """
+  Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+  """
+  username: String!
+
+  firstName: String!
+
+  lastName: String!
+
+  id: ID!
+
+  email: String!
+
+  isOnline: Boolean!
+}
+
+type Mutation {
+  createGift(cost: Float!, giftName: String!, picture: String!, type: String!): Creategiftmutation
+
+  deleteGift(id: ID!): Deletegiftmutation
+
+  updateGift(cost: Float!, giftName: String!, id: ID!, picture: String!, type: String!): Updategiftmutation
+
+  giftPurchase(giftId: ID, receiverId: ID): Purchasegiftmutation
+
+  insertMoment(Title: String!, file: Upload!, momentDescription: String!, user: String!): Momentmutation
+
+  insertStory(file: Upload!): Storymutation
+
+  deleteMoment(id: ID): Momentdeletemutation
+
+  likeMoment(momentId: ID): Momentlikemutation
+
+  commentMoment(commentDescription: String!, momentId: ID, replyTo: String): Momentcommentmutation
+
+  reportMoment(ReportMsg: String!, momentId: ID): Momentreportmutation
+
+  likeComment(commentId: String): CommentLikeMutation
+
+  genericComment(commentDescription: String, objectId: Int, objectType: String): GenericCommentMutation
+
+  genericLike(objectId: Int, objectType: String): GenericLikeMutation
+
+  sendMessage(messageStr: String!, roomId: Int!): SendMessage
+
+  """
+  to creeate a chat you need to pass `user_name`
+  """
+  createChat(userName: String!): CreateChat
+
+  sendNotification(androidChannelId: String, appUrl: String, data: GenericScalar, icon: String, notificationSetting: String, priority: Int, userId: UUID!): SendNotification
+
+  purchaseCoin(coins: Int, id: String, method: String, money: Float): purchaseResponseObj
+
+  socialAuth(accessToken: String!, accessVerifier: String = "", provider: String!): googleAuthResponse
+
+  reportUser(reportee: String, reporter: String): reportResponseObj
+
+  updateCoin(coins: Int, id: String): coinsResponseObj
+
+  deleteAvatarPhoto(id: String): MutationResponse
+
+  blockUser(blockedId: String, id: String): blockResponseObj
+
+  unblockUser(blockedId: String, id: String): blockResponseObj
+
+  deductCoin(id: String, method: String): coinsResponseObj
+
+  createUser(email: String!, fcmRegistrationId: String, onesignalPlayerId: String, password: String!, username: String!): CreateUser
+
+  updateProfile(about: String, age: Int, avatarIndex: Int, book: [String], education: String, email: String, ethinicity: Int, familyPlans: Int, fcmRegistrationId: String, fullName: String, gender: Int, height: Int, id: String, interestedIn: [Int], isOnline: Boolean, likes: [String], location: [Float], movies: [String], music: [String], onesignalPlayerId: String, "Number of social platform 1.GOOGLE 2.FACEBOOK 3.INSTAGRAM 4.SNAPCHAT 5.LINKEDIN" platform: Int, politics: Int, religion: Int, sportsTeams: [String], tagIds: [Int], tvShows: [String], url: String, username: String, work: String, zodiacSign: Int): userResponseObj
+
+  deleteProfile(id: String): DeleteProfileResponse
+
+  deleteBroadcast: DeleteBroadcast
+
+  deleteMessages(roomId: Int!): DeleteMessages
+}
+
+type Creategiftmutation {
+  gift: GiftType1
+}
+
+type Deletegiftmutation {
+  gift: GiftType1
+}
+
+type Updategiftmutation {
+  error: Boolean
+
+  msg: String
+
+  gift: GiftType1
+}
+
+type Purchasegiftmutation {
+  error: Boolean
+
+  msg: String
+
+  giftPurchase: GiftpurchaseType
+}
+
+type Momentmutation {
+  moment: MomentsTyps
+}
+
+"""
+Create scalar that ignores normal serialization/deserialization, since
+that will be handled by the multipart request spec
+"""
+scalar Upload
+
+type Storymutation {
+  story: StoryType
+}
+
+type Momentdeletemutation {
+  moment: MomentsTyps
+}
+
+type Momentlikemutation {
+  like: LikeType
+}
+
+type Momentcommentmutation {
+  comment: CommentType
+}
+
+type Momentreportmutation {
+  report: ReportType
+}
+
+type CommentLikeMutation {
+  commentLike: CommentLikeType
+}
+
+type GenericCommentMutation {
+  genericComment: GenericCommentType
+}
+
+type GenericLikeMutation {
+  genericLike: GenericLikeType
+}
+
+type SendMessage {
+  message: MessageType
+}
+
+"""
+to creeate a chat you need to pass `user_name`
+"""
+type CreateChat {
+  room: RoomType
+
+  error: String
+}
+
+type SendNotification {
+  sent: Boolean
+}
+
+"""
+The `GenericScalar` scalar type represents a generic
+GraphQL scalar value that could be:
+String, Boolean, Int, Float, List or Object.
+"""
+scalar GenericScalar
+
+type purchaseResponseObj {
+  id: Int
+
+  coins: Int
+
+  success: Boolean
+}
+
+type googleAuthResponse {
+  email: String
+
+  isNew: Boolean
+
+  id: String
+
+  token: String
+
+  username: String
+}
+
+type reportResponseObj {
+  id: String
+}
+
+type coinsResponseObj {
+  id: String
+
+  coins: Int
+
+  success: Boolean
+}
+
+type MutationResponse {
+  success: Boolean
+
+  message: String
+}
+
+type blockResponseObj {
+  id: String
+
+  username: String
+
+  success: Boolean
+}
+
+type CreateUser {
+  user: UserType
+}
+
+type userResponseObj {
+  id: String
+
+  username: String
+
+  interestedIn: [Int]
+}
+
+type DeleteProfileResponse {
+  result: String
+}
+
+type DeleteBroadcast
+{
+  broadcast: BroadcastType
+  message: String
+  success: Boolean
+}
+type DeleteMessages
+{
+  message: String
+  success: Boolean
+}
+type Subscription {
+  onNewMessage(token: String): OnNewMessage
+}
+
+type OnNewMessage {
+  message: MessageType
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

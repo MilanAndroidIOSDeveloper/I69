@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:chipcloud="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.i69app.utils.Utils" />
+
+        <variable
+            name="model"
+            type="com.i69app.ui.viewModels.SearchViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labelAgeRange"
+                style="@style/MediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/height_range"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/personalExpand" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ageRangeLeft"
+                style="@style/BoldMediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Utils.convertInchToLb(model.heightRangeLeft)}"
+                app:layout_constraintBottom_toBottomOf="@id/labelAgeRange"
+                app:layout_constraintRight_toLeftOf="@id/ageRangeDefis" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ageRangeDefis"
+                style="@style/BoldMediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@id/ageRangeLeft"
+                app:layout_constraintRight_toLeftOf="@id/ageRangeRight"
+                app:layout_constraintTop_toTopOf="@id/ageRangeLeft" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/ageRangeRight"
+                style="@style/BoldMediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Utils.convertInchToLb(model.heightRangeRight)}"
+                app:layout_constraintBottom_toBottomOf="@id/ageRangeLeft"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </LinearLayout>
+
+        <com.i69app.ui.views.rangeseekbar.RangeSeekBar
+            android:id="@+id/heightRangeSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:leftValue="@={model.heightRangeLeft}"
+            app:rightValue="@={model.heightRangeRight}"
+            app:rsb_indicator_margin="100dp"
+            app:rsb_max="97"
+            app:rsb_min="55"
+            app:rsb_mode="range"
+            app:rsb_progress_color="@color/search_seek_bar_progress"
+            app:rsb_progress_default_color="@color/search_seek_bar_default"
+            app:rsb_range_interval="1"
+            app:rsb_thumb_drawable="@drawable/ic_notification_circle"
+            app:rsb_thumb_scale_ratio="1.5"
+            app:rsb_thumb_size="18dp" />
+
+        <include
+            layout="@layout/layout_group_item_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:mainTitle="@{@string/family_plans_label}"
+            app:options="@{model.familyPlans}" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/MediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tags_label" />
+
+            <com.i69app.ui.views.InterestsView
+                android:id="@+id/tagsBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_padding"
+                android:onClick="@{model.btnTagsAddListener::onClick}"
+                chipcloud:allCaps="true"
+                chipcloud:deselectedColor="@android:color/white"
+                chipcloud:deselectedFontColor="@color/colorPrimary"
+                chipcloud:gravity="left"
+                chipcloud:minHorizontalSpacing="@dimen/small_padding"
+                chipcloud:selectMode="none"
+                chipcloud:selectedColor="@android:color/white"
+                chipcloud:selectedFontColor="@color/colorPrimary"
+                chipcloud:textSize="14sp"
+                chipcloud:verticalSpacing="@dimen/default_padding" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/container_color"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/interested_in_relationships_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_guideline">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.i69app.ui.views.CheckableImageButton
+                    android:id="@+id/new_friends"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:checkedSrc="@drawable/ic_new_friend_checked"
+                    app:colorChecked="@color/white"
+                    app:colorDefault="@color/colorPrimary"
+                    app:layout_constraintEnd_toStartOf="@id/relationship"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:orientation="vertical"
+                    app:text="@string/new_friends"
+                    app:tintColorChecked="@color/wheat"
+                    app:tintColorDefault="@color/lightGray"
+                    app:uncheckedSrc="@drawable/ic_new_friend_unchecked" />
+
+                <com.i69app.ui.views.CheckableImageButton
+                    android:id="@+id/relationship"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:checkedSrc="@drawable/ic_relationship"
+                    app:colorChecked="@color/white"
+                    app:colorDefault="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/new_friends"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:orientation="vertical"
+                    app:text="@string/welcome_relationships"
+                    app:tintColorChecked="@color/wheat"
+                    app:tintColorDefault="@color/lightGray"
+                    app:uncheckedSrc="@drawable/ic_relationship" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <com.i69app.ui.views.CheckableImageButton
+                    android:id="@+id/roommates"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:checkedSrc="@drawable/ic_roommates_checked"
+                    app:colorChecked="@color/white"
+                    app:colorDefault="@color/colorPrimary"
+                    app:layout_constraintEnd_toStartOf="@id/business_contacts"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:orientation="vertical"
+                    app:text="@string/roommates"
+                    app:tintColorChecked="@color/wheat"
+                    app:tintColorDefault="@color/lightGray"
+                    app:uncheckedSrc="@drawable/ic_roommates_unchecked" />
+
+                <com.i69app.ui.views.CheckableImageButton
+                    android:id="@+id/business_contacts"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
+                    app:checkedSrc="@drawable/ic_business_contacts_checked"
+                    app:colorChecked="@color/white"
+                    app:colorDefault="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/roommates"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:orientation="vertical"
+                    app:text="@string/business_contacts"
+                    app:tintColorChecked="@color/wheat"
+                    app:tintColorDefault="@color/lightGray"
+                    app:uncheckedSrc="@drawable/ic_business_contacts_unchecked" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/welcome_description_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/interested_in_description_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bottom_guideline">
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="@dimen/large_padding"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="@dimen/large_padding"
+                android:background="@drawable/rounded_yellow_btn"
+                android:drawableStart="@drawable/ic_search_active"
+                android:drawableTint="@color/dark_gray"
+                android:paddingStart="@dimen/default_padding"
+                android:paddingEnd="@dimen/small_padding"
+                android:text="@string/welcome_button"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/welcome_button_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/description_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/large_padding"
+                android:layout_marginRight="@dimen/large_padding"
+                android:layout_marginBottom="@dimen/default_padding"
+                android:gravity="center"
+                android:text="@string/welcome_text"
+                android:textColor="@color/welcome_description_text"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/start"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:alpha="0.46"
+            android:background="@drawable/shadow_bottom"
+            app:layout_constraintBottom_toTopOf="@+id/welcome_description_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/welcome_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/background_rounded_top_welcome"
+            app:layout_constraintBottom_toTopOf="@+id/top_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/welcome_top_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:letterSpacing="0.1"
+                android:text="@string/welcome_title"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/welcome_top_description"
+                app:layout_constraintEnd_toStartOf="@id/welcome_Logo"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_top_guideline" />
+
+            <ImageView
+                android:id="@+id/welcome_Logo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/login_logo"
+                app:layout_constraintBottom_toBottomOf="@id/welcome_top_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/welcome_top_text"
+                app:tint="@android:color/black" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/welcome_top_description"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:text="@string/welcome_hint"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/welcome_bottom_guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_weight="0.2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/welcome_top_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.10" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/welcome_bottom_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.80" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

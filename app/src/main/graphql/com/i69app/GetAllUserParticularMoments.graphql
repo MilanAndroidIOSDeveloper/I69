@@ -1,0 +1,50 @@
+query GetAllUserParticularMoments($width: Int!,$characterSize: Int!,$pk: String!) {
+    allUserMoments (pk: $pk) {
+        edges {
+            cursor
+            cursor
+            node {
+                pk
+                comment
+                createdDate
+                file
+                id
+                like
+
+                momentDescription
+
+                momentDescriptionPaginated(width: $width,characterSize: $characterSize)
+
+                user {
+                    id
+                    email
+                    fullName
+                    username
+                    gender
+                    email
+                    avatar
+                    {
+                        id
+                        url
+                        user
+                    }
+                    onesignalPlayerId
+                    avatarPhotos {
+                        url
+                        id
+                        user
+                    }
+                }
+
+            }
+
+
+        }
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+    }
+}

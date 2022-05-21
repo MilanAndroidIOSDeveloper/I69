@@ -1,0 +1,5 @@
+query IsOnlineQuery ($uid: String!) {
+    isOnline(id: $uid) {
+        isOnline
+    }
+}

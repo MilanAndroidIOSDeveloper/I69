@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@drawable/bottom_bg"
+    android:id="@+id/giftbottomSheet"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:behavior_hideable="true"
+    android:maxHeight="@dimen/_450sdp"
+    android:minHeight="@dimen/_300sdp"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtMomentRecentComment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center"
+
+                            android:text="Gifts"
+
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/giftsTabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_gravity="bottom"
+                            android:alpha="0.9"
+                            android:layout_below="@+id/txtMomentRecentComment"
+                            android:background="@color/edit_profile_chip_text"
+                            app:tabIndicatorColor="@color/colorPrimary"
+                            app:tabIndicatorHeight="3dp"
+                            android:layout_marginTop="10dp"
+                            app:tabSelectedTextColor="@color/white"
+                            app:tabTextColor="@color/white" />
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/gifts_pager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/giftsTabs" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/purchaseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_above="@+id/dummy_c"
+                    android:paddingLeft="@dimen/_15sdp"
+                    android:paddingRight="@dimen/_15sdp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/rounded_black_btn">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/sendgiftto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="@id/purchaseButton"
+                        app:layout_constraintBottom_toBottomOf="@id/purchaseButton"
+                        android:text="Send Gift"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:id="@+id/dummy_c"
+
+                            android:layout_alignParentBottom="true"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"/>
+
+                    </RelativeLayout>
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

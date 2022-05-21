@@ -1,0 +1,24 @@
+mutation LikeOnStory ($objectId: Int!,$objectType: String!) {
+    genericLike (objectId: $objectId,objectType: $objectType) {
+
+        genericLike {
+            id
+            objectId
+            pk
+            user {
+                fullName
+                avatar {
+                    id
+                    url
+
+                }
+                avatarIndex
+                avatarPhotos {
+                    url
+                    id
+                }
+
+            }
+        }
+    }
+}

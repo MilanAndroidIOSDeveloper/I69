@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.i69app.ui.viewModels.SearchViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="48dp"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_group_item_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:mainTitle="@{@string/politic_views_label}"
+            app:options="@{model.politics}" />
+
+
+        <include
+            layout="@layout/layout_group_item_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:mainTitle="@{@string/religious_beliefs_label}"
+            app:options="@{model.religious}" />
+
+        <include
+            layout="@layout/layout_group_item_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:mainTitle="@{@string/zodiac_sign_label}"
+            app:options="@{model.zodiac}" />
+
+    </LinearLayout>
+
+</layout>

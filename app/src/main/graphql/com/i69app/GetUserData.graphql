@@ -1,0 +1,18 @@
+query GetUserData ($id: String!){
+    user(id: $id) {
+       avatar
+       {
+           url
+       }
+        purchaseCoins
+        giftCoins
+        avatarIndex
+        avatarPhotos {
+            url
+        }
+        id
+        username
+        fullName
+    }
+
+}

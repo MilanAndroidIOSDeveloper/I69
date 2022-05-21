@@ -1,0 +1,24 @@
+mutation LikeOnMoment ($momentId: ID!) {
+    likeMoment (momentId: $momentId) {
+
+        like
+        {
+            id
+
+            momemt
+            {
+                pk
+                id
+                like
+                comment
+                momentDescriptionPaginated
+            }
+            user
+            {
+                id
+                username
+                email
+            }
+        }
+    }
+}

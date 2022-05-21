@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:paddingStart="@dimen/search_item_margin"
+        android:paddingTop="@dimen/search_item_margin"
+        android:paddingEnd="@dimen/search_item_margin"
+        android:paddingBottom="0dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:layout_constraintDimensionRatio="6:7"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_yellow_gradient">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/top_image_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.02" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/bottom_image_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.42" />
+
+                <ImageView
+                    android:id="@+id/image_container"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/background_circle_button_unchecked"
+                    android:contentDescription="@string/app_name"
+                    android:padding="28dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/login_logo"
+                    app:layout_constraintBottom_toTopOf="@+id/bottom_image_guideline"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/top_image_guideline"
+                    app:layout_constraintWidth_percent=".5" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/unlock_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/search_unlock_title_margin_top"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/search_unlock_feature_title"
+                    android:textAllCaps="true"
+                    android:textColor="@color/search_unlock_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:autoSizeMinTextSize="8sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_container"
+                    app:layout_constraintWidth_percent=".8" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/unlock_descr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:text="@string/search_unlock_feature_description"
+                    android:textColor="@color/search_unlock_text"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/unlock_title"
+                    app:layout_constraintWidth_percent=".8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

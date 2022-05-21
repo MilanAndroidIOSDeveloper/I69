@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="xxxsmall_padding">4dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="large_padding">24dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+
+
+    <!--custom button-->
+    <dimen name="interest_button_height">36dp</dimen>
+
+    <dimen name="profile_photo_thumb_size">124dp</dimen>
+    <dimen name="profile_photo_thumb_corners_radius">16dp</dimen>
+    <dimen name="profile_add_photo_button_size">124dp</dimen>
+    <dimen name="profile_add_photo_text_size">11sp</dimen>
+    <dimen name="profile_remove_photo_button_size">30dp</dimen>
+    <dimen name="label_text_size">12sp</dimen>
+    <dimen name="edit_text_height">40dp</dimen>
+
+    <dimen name="half_default_padding">8dp</dimen>
+    <dimen name="nav_bottom_item_side">48dp</dimen>
+    <dimen name="nav_bottom_item_padding_chat">4dp</dimen>
+    <dimen name="toolbar_action_size">12sp</dimen>
+    <dimen name="anim_side_duration">10dp</dimen>
+
+    <!-- CHIPS library -->
+    <dimen name="default_textsize">16sp</dimen>
+    <dimen name="material_chip_height">36dp</dimen>
+    <dimen name="min_horizontal_spacing">8dp</dimen>
+    <dimen name="vertical_spacing">8dp</dimen>
+    <dimen name="search_item_margin">6dp</dimen>
+    <dimen name="preview_anim_view_height">85dp</dimen>
+    <dimen name="preview_anim_view_margin">8dp</dimen>
+
+    <!-- Settings-->
+    <dimen name="settings_buy_element_height">68dp</dimen>
+    <dimen name="settings_element_height">58dp</dimen>
+    <dimen name="settings_divider_element_margin_start">81dp</dimen>
+    <dimen name="settings_buy_element_margin_start">16dp</dimen>
+    <dimen name="settings_element_margin_start">32dp</dimen>
+    <dimen name="settings_element_margin_end">36dp</dimen>
+    <dimen name="settings_buy_element_text_margin_start">18dp</dimen>
+    <dimen name="settings_element_text_margin_start">28dp</dimen>
+    <dimen name="settings_privacy_element_text_margin_start">31dp</dimen>
+
+    <!--  Search unlock feature  -->
+    <dimen name="search_unlock_title_margin_top">10dp</dimen>
+
+    <dimen name="menu_item_button_height">78dp</dimen>
+    <dimen name="menu_item_top_margin">20dp</dimen>
+    <dimen name="menu_container_top_margin">10dp</dimen>
+
+    <!-- Profile header dimensions -->
+    <dimen name="profile_header_padding">15dp</dimen>
+    <dimen name="profile_header_spacing1">10dp</dimen>
+    <dimen name="profile_header_spacing2">7dp</dimen>
+    <dimen name="profile_header_text_size">16dp</dimen>
+    <dimen name="profile_header_lables">13dp</dimen>
+    <dimen name="profile_header_elevation">5dp</dimen>
+
+</resources>

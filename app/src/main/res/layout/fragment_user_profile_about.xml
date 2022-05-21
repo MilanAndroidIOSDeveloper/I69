@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:chipcloud="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/xxxsmall_padding"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_section_background_transparent"
+                android:padding="@dimen/large_padding"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/about"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/profile_header_text_size"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:layout_width="@dimen/profile_header_spacing1"
+                            android:layout_height="wrap_content"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/userName_about_section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/profile_header_text_size"
+                            android:textStyle="bold"
+                            tools:text="Actress at Desney" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/userAbout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textStyle="normal"
+                        android:textSize="@dimen/profile_header_lables"
+                        tools:text="University of British Columbia" />
+
+                </LinearLayout>
+
+                <com.i69app.ui.views.chipcloud.ChipCloud
+                    android:id="@+id/userTags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                    app:layout_constraintVertical_bias="0.0"
+                    chipcloud:allCaps="true"
+                    chipcloud:deselectTransitionMS="10"
+                    chipcloud:deselectedFontColor="@color/colorPrimary"
+                    chipcloud:gravity="left"
+                    chipcloud:minHorizontalSpacing="10dp"
+                    chipcloud:selectMode="none"
+                    chipcloud:selectTransitionMS="0"
+                    chipcloud:selectedFontColor="@color/colorPrimaryDark"
+                    chipcloud:textSize="12sp"
+                    chipcloud:verticalSpacing="10dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/xxxsmall_padding"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_section_background_transparent"
+                android:padding="@dimen/large_padding"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/interests_for"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/profile_header_text_size"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:layout_width="@dimen/profile_header_spacing1"
+                            android:layout_height="wrap_content"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/userName_intrest_section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/profile_header_text_size"
+                            android:textStyle="bold"
+                            tools:text="Actress at Desney" />
+
+                    </LinearLayout>
+
+                    <!--<com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/userIntrest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textStyle="normal"
+                        android:textSize="@dimen/profile_header_lables"
+                        tools:text="University of British Columbia" />-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/userMusicLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/default_padding"
+                            android:paddingEnd="@dimen/default_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/music"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/label_text_size"
+                                android:textStyle="bold" />
+
+
+                            <com.i69app.ui.views.TagsCloudView
+                                android:id="@+id/userMusic"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/userMoviesLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/default_padding"
+                            android:paddingEnd="@dimen/default_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/movies"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/label_text_size"
+                                android:textStyle="bold" />
+
+
+                            <com.i69app.ui.views.TagsCloudView
+                                android:id="@+id/userMovies"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/userTvShowsLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/default_padding"
+                            android:paddingEnd="@dimen/default_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/tv_shows"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/label_text_size"
+                                android:textStyle="bold" />
+
+                            <com.i69app.ui.views.TagsCloudView
+                                android:id="@+id/userTvShows"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/userSportTeamsLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="24dp"
+                            android:orientation="vertical"
+                            android:paddingStart="@dimen/default_padding"
+                            android:paddingEnd="@dimen/default_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/sport_teams"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/label_text_size"
+                                android:textStyle="bold" />
+
+
+                            <com.i69app.ui.views.TagsCloudView
+                                android:id="@+id/userSportTeams"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--<com.i69app.ui.views.chipcloud.ChipCloud
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                    app:layout_constraintVertical_bias="0.0"
+                    chipcloud:allCaps="true"
+                    chipcloud:deselectTransitionMS="10"
+                    chipcloud:deselectedFontColor="@color/colorPrimary"
+                    chipcloud:gravity="left"
+                    chipcloud:minHorizontalSpacing="10dp"
+                    chipcloud:selectMode="none"
+                    chipcloud:selectTransitionMS="0"
+                    chipcloud:selectedFontColor="@color/colorPrimaryDark"
+                    chipcloud:textSize="12sp"
+                    chipcloud:verticalSpacing="10dp" />-->
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

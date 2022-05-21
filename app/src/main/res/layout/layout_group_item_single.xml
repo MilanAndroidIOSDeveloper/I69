@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mainTitle"
+            type="java.lang.String" />
+
+        <variable
+            name="options"
+            type="com.i69app.ui.viewModels.SearchViewModel.SpinnerOptions" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_padding"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/MediumTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{mainTitle}" />
+
+        <com.i69app.ui.views.NoDefaultSpinner
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_height"
+            android:background="@null"
+            android:prompt="@{options.prompt}"
+            android:textSize="20sp"
+            app:items="@{options.items}"
+            app:spinnerSelectedValue="@={options.position}" />
+
+        <View
+            style="@style/DividerSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_marginEnd="@dimen/default_padding"
+            android:alpha="1" />
+
+    </LinearLayout>
+
+</layout>

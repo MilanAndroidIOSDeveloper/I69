@@ -1,0 +1,88 @@
+query GetparticularRooms($id: ID!) {
+    room (id: $id) {
+        deleted
+        id
+        lastModified
+        name
+        target {
+            id
+            gender
+            fullName
+            isOnline
+            avatar {
+                id
+                url
+                user
+
+            }
+
+
+        }
+        unread
+        userId {
+            fullName
+            gender
+
+            id
+            avatar {
+                id
+                user
+                url
+
+
+            }
+        }
+        target {
+            id
+            gender
+            avatar {
+
+                id
+                url
+            }
+            isOnline
+            fullName
+
+        }
+        messageSet
+        {
+            edges {
+                node {
+                    id
+                    userId {
+
+                        id
+                        fullName
+                        avatar {
+                            id
+                            url
+                        }
+                    }
+                    content
+                    read
+                    roomId {
+
+                        id
+                        userId {
+
+                            id
+                            avatar {
+
+                                id
+                                url
+                            }
+                        }
+                        lastModified
+                       name
+                        unread
+                    }
+
+                }
+            }
+        }
+
+
+    }
+}
+
+

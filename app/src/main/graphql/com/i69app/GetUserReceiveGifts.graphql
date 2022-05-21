@@ -1,0 +1,17 @@
+query GetUserReceiveGift($receiverId: UUID!){
+    allUserGifts(receiver_Id:$receiverId) {
+        edges {
+            node {
+                id
+                gift{
+                    id
+                    giftName
+                    cost
+                    picture
+                    type
+                }
+                purchasedOn
+            }
+        }
+    }
+}

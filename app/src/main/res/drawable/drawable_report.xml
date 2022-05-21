@@ -1,0 +1,8 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="@dimen/interest_button_height"
+        android:height="@dimen/interest_button_height"
+        android:drawable="@drawable/icon_report">
+    </item>
+
+</layer-list>

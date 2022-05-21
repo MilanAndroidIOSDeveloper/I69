@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/container_color">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/settingsAppBar"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/toolbar_color">
+
+                    <ImageView
+                        android:id="@+id/toolbarHamburger"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/app_name"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_cross_close"
+                        app:tint="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/toolBarTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.2"
+                        android:text="@string/settings"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <!-- BUY COINS -->
+            <LinearLayout
+                android:id="@+id/buyCoinsContainer"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/settings_buy_element_height"
+                android:background="@drawable/background_main_theme_gradient"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/settingsAppBar">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_buy_element_margin_start"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_buy_chat_coins" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_buy_element_text_margin_start"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:text="@string/settings_buy"
+                    android:textAllCaps="true"
+                    android:textColor="@color/settings_buy_text_color"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/settings_element_margin_end"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_keyboard_arrow_right"
+                    app:tint="@color/settings_buy_next_tint_color" />
+
+            </LinearLayout>
+
+            <!-- Blocked accounts -->
+            <LinearLayout
+                android:id="@+id/blockedContainer"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/settings_element_height"
+                android:background="@color/container_color"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buyCoinsContainer">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_element_margin_start"
+                    android:contentDescription="@string/block"
+                    android:src="@drawable/ic_block" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_element_text_margin_start"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:text="@string/blocked_accounts"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/settings_element_margin_end"
+                    android:contentDescription="@string/block"
+                    android:src="@drawable/ic_keyboard_arrow_right"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/blockedDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/settings_divider_element_margin_start"
+                android:background="@color/toolbar_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/blockedContainer" />
+
+            <!-- Privacy-->
+            <LinearLayout
+                android:id="@+id/privacyContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_element_height"
+                android:background="@color/container_color"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/blockedDivider">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_element_margin_start"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/icon_privacy" />
+
+                <com.google.android.material.textview.MaterialTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_privacy_element_text_margin_start"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:text="@string/privacy"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/settings_element_margin_end"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_keyboard_arrow_right"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/privacyDivider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/settings_divider_element_margin_start"
+                android:background="@color/toolbar_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyContainer" />
+
+            <!-- Terms-->
+            <LinearLayout
+                android:id="@+id/termsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/settings_element_height"
+                android:background="@color/container_color"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyDivider">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_element_margin_start"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_terms_and_conditions" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/settings_element_text_margin_start"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="start"
+                    android:text="@string/terms_and_conditions"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/settings_element_margin_end"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_keyboard_arrow_right"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/termsDivider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/settings_divider_element_margin_start"
+                android:background="@color/toolbar_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/termsContainer" />
+
+            <!-- Logout container-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/settings_logout_block_color"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/termsDivider"
+                app:layout_constraintVertical_bias="0.0">
+
+                <View
+                    android:id="@+id/shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:alpha="0.48"
+                    android:background="@drawable/shadow" />
+
+                <LinearLayout
+                    android:id="@+id/logoutContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/settings_element_height"
+                    android:layout_marginBottom="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/settings_element_margin_start"
+                        android:contentDescription="@string/settings_logout"
+                        android:src="@drawable/ic_logout" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/settings_element_text_margin_start"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif"
+                        android:gravity="start"
+                        android:text="@string/settings_logout"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+<!--                <View-->
+<!--                    android:id="@+id/logoutDivider"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_marginStart="@dimen/settings_divider_element_margin_start"-->
+<!--                    android:background="@color/black" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/deleteContainer"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/settings_element_height"-->
+<!--                    android:layout_marginBottom="14dp"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true"-->
+<!--                    android:visibility="visible">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/settings_element_margin_start"-->
+<!--                        android:contentDescription="@string/delete_account"-->
+<!--                        android:src="@drawable/ic_delete" />-->
+
+<!--                    <com.google.android.material.textview.MaterialTextView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginStart="@dimen/settings_element_text_margin_start"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="sans-serif"-->
+<!--                        android:gravity="start"-->
+<!--                        android:text="@string/delete_account"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                </LinearLayout>-->
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

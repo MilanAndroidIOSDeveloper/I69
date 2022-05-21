@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.i69app.utils.ViewUtilsKt" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="user"
+            type="com.i69app.data.models.User" />
+
+        <variable
+            name="vm"
+            type="com.i69app.profile.vm.VMProfile" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/userMainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:fitsSystemWindows="true">
+
+
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/userAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:fitsSystemWindows="true"
+            android:gravity="center_horizontal"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/userCollapseToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:titleEnabled="false">
+
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/userImgHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:transitionName="profilePhoto"
+                    app:indicatorGravity="center_horizontal|bottom"
+                    app:indicatorMarginVertical="56dp"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:layout_marginEnd="@dimen/_10sdp">
+
+
+                        <ImageView
+
+                            android:id="@+id/bell"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/notification1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/counter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:background="@drawable/circular_border"
+                            android:gravity="center"
+                            android:text="0"
+
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/bell" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/action_gifts1"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/_100sdp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="2"
+                        android:gravity="top|center"
+                        android:onClick="@{() -> vm.onGiftClick()}"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/gift"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/pink_gift_noavb" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/gift_counter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:background="@drawable/circular_border"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/gift" />
+                        <!--                        <com.google.android.material.textview.MaterialTextView-->
+                        <!--                            android:id="@+id/gift_count1"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:fontFamily="sans-serif"-->
+                        <!--                            android:textColor="@color/white"-->
+                        <!--                            android:textSize="@dimen/profile_header_lables"-->
+                        <!--                            android:textStyle="normal"-->
+                        <!--                            tools:text="0" />-->
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/_150sdp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:visibility="@{vm.isGiftIconEnabled() ? View.GONE : View.VISIBLE}"
+                        tools:visibility="visible"
+                        android:orientation="vertical">
+
+                        <!--this layout will not be visible for other user profile-->
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/coins"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/icon_like_count2" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/userLikes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@{String.valueOf(vm.data.user.likes.size())}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/profile_header_lables"
+                            android:textStyle="normal"
+                            tools:text="456" />
+
+                    </LinearLayout>
+
+
+                    <ImageButton
+                        android:id="@+id/sendMsgBtn"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="85dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> vm.onSendMsgClick()}"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/msgicon2"
+                        android:visibility="@{vm.isMessageEnabled ? View.VISIBLE : View.GONE}" />
+
+                </com.synnapps.carouselview.CarouselView>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/htab_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="top"
+                    android:layout_marginBottom="48dp"
+                    app:layout_collapseMode="pin"
+                    app:titleTextColor="@android:color/black" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/searchToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/actionBack"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> vm.onBackPressed()}"
+                        android:padding="12dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/back_new1"
+                        android:visibility="@{vm.isBackEnabled ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="gone" />
+
+                    <ImageButton
+                        android:id="@+id/actionMain"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> vm.onDrawerClick()}"
+                        android:padding="4dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/logo"
+                        android:visibility="@{vm.isDrawerEnabled ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="gone" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/userToolbarTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:letterSpacing="0.2"
+                        android:text="@string/my_profile"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/actionEdit"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/circle_shape_2"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> vm.onEditProfile()}"
+                        android:padding="8dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_edit"
+                        android:visibility="@{vm.isEditEnabled ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/black"
+                        tools:visibility="gone" />
+
+                    <ImageButton
+                        android:id="@+id/actionReport"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/app_name"
+                        android:onClick="@{() -> vm.onReport()}"
+                        android:padding="1dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_report_2"
+                        android:visibility="@{vm.isReportEnabled ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/profileTabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/tab_layout_background"
+                    app:tabIndicatorColor="@color/colorPrimary"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabSelectedTextColor="@color/user_tab_idle_text"
+                    app:tabTextColor="@color/user_tab_selected_text" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/userBaseInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lyt_profile_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/profile_header_background"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:paddingStart="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.65" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/user_profile_img_container"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="2"
+                            app:cardBackgroundColor="@color/colorPrimaryPix"
+                            app:cardCornerRadius="90dp"
+                            app:cardElevation="@dimen/profile_header_elevation"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/user_profile_img"
+                                android:layout_width="46dp"
+                                android:layout_height="46dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/app_name"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_default_user" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/user_profile_img_container"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/userName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="sans-serif-medium"
+                                android:maxLines="1"
+                                android:text="@{vm.data.user.fullName}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/profile_header_text_size"
+                                android:textStyle="normal"
+                                tools:text="Angeaslfkjsaldjfkalina suresh" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="left"
+                                        android:text="@string/age_label"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/profile_header_lables"
+                                        android:textStyle="normal" />
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="left"
+                                        android:text="@string/height_label"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/profile_header_lables"
+                                        android:textStyle="normal" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="5dp"
+                                    android:layout_height="0dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="left"
+                                        android:text=":"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/profile_header_lables"
+                                        android:textStyle="normal" />
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="left"
+                                        android:text=":"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/profile_header_lables"
+                                        android:textStyle="normal" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="@dimen/profile_header_spacing2"
+                                    android:layout_height="0dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/userAge"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="@{vm.data.user.ageValue}"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/profile_header_lables"
+                                        android:textStyle="normal"
+                                        tools:text="Age" />
+
+                                    <com.google.android.material.textview.MaterialTextView
+                                        android:id="@+id/userHeight"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif"
+                                        android:gravity="center"
+                                        android:text="@{vm.data.user.heightValue}"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/profile_header_lables"
+                                        android:textStyle="normal"
+                                        tools:text="Age" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lyt_coins_gifts"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/small_padding"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+                            <!--                            android:visibility="@{vm.isCoinsEnabled ? View.GONE : View.VISIBLE}"-->
+                            <LinearLayout
+                                android:id="@+id/action_earning"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="16dp"
+                                android:layout_weight="2"
+                                android:gravity="top|center"
+                                android:orientation="vertical"
+                                android:visibility="@{vm.isEarnCoinsEnabled() ? View.VISIBLE : View.GONE}"
+                                tools:visibility="visible">
+                                <!--android:onClick="@{() -> vm.onGiftClick()}"-->
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/wallet"
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables"/>
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    app:srcCompat="@drawable/icon_wallet" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/earning_gift_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables"
+                                    android:text="@{String.valueOf(vm.data.user.giftCoins)}"
+                                    android:textStyle="normal"
+                                    tools:text="@string/user_number" />
+
+
+                            </LinearLayout>
+                            <!--                            android:visibility="@{vm.isCoinsEnabled ? View.VISIBLE : View.GONE}"-->
+                            <LinearLayout
+                                android:id="@+id/action_coins"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="16dp"
+                                android:layout_weight="2"
+                                android:gravity="top|center"
+                                android:onClick="@{() -> vm.onCoinsClick()}"
+                                android:orientation="vertical"
+                                android:visibility="@{vm.isCoinsEnabled ? View.VISIBLE : View.GONE}"
+                                tools:visibility="visible">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/coins"
+                                    android:gravity="center"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    app:srcCompat="@drawable/coin1" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/coins_amt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@{String.valueOf(vm.data.user.purchaseCoins)}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables"
+                                    android:textStyle="normal"
+                                    tools:text="@string/user_number" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/layoutLikes"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/small_padding"
+                                android:layout_marginEnd="8dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                tools:visibility="gone"
+                                android:visibility="@{vm.isLikesIconEnabled() ? View.VISIBLE : View.GONE}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/lyt_coins_gifts"
+                                app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/likes_u"
+                                    android:layout_width="38dp"
+                                    android:layout_height="38dp"
+                                    app:srcCompat="@drawable/icon_like_count" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/userLikesCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@{String.valueOf(vm.data.user.likes.size())}"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables"
+                                    android:textStyle="normal"
+                                    tools:text="456" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/action_gifts"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="16dp"
+                                android:layout_weight="1"
+                                android:gravity="top|center"
+                                android:onClick="@{() -> vm.onGiftClick()}"
+                                android:orientation="vertical"
+                                tools:visibility="gone"
+                                android:visibility="@{vm.isGiftIconEnabled() ? View.VISIBLE : View.GONE}">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:text="@string/gifts"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="39dp"
+                                    android:layout_height="39dp"
+                                    app:srcCompat="@drawable/pink_gift_noavb" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/gift_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif"
+                                    android:gravity="center_horizontal"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/profile_header_lables"
+                                    android:textStyle="normal"
+                                    tools:text="@string/user_coins" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/init_chat_msg_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_black_btn"
+                    android:drawablePadding="10dp"
+                    android:elevation="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:onClick="@{() -> vm.onSendMsgClick()}"
+                    android:paddingStart="32dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="32dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/send_message"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryPix"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+
+                    app:drawableStartCompat="@drawable/msgicon2_1"
+                    app:layout_constraintBottom_toBottomOf="@+id/userBaseInfo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userBaseInfo" />
+
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/userDataViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="627dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userBaseInfo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/bottom_bg"
+            android:id="@+id/giftbottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:behavior_hideable="true"
+
+            android:maxHeight="@dimen/_450sdp"
+            android:minHeight="@dimen/_300sdp"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtMomentRecentComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center"
+
+                        android:text="Gifts"
+
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/giftsTabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_below="@+id/txtMomentRecentComment"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="10dp"
+                        android:alpha="0.9"
+                        android:background="@color/edit_profile_chip_text"
+                        app:tabIndicatorColor="@color/colorPrimary"
+                        app:tabIndicatorHeight="3dp"
+                        app:tabInlineLabel="true"
+                        app:tabSelectedTextColor="@color/white"
+                        app:tabTextColor="@color/white" />
+                    <LinearLayout
+                        android:layout_below="@+id/giftsTabs"
+                        android:id="@+id/topl"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/unametitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="left"
+
+                                    android:text="SENDER"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="2"
+
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/gname"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left"
+
+
+                                    android:fontFamily="sans-serif-light"
+
+                                    android:text="GIFT NAME"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="3"
+                                android:gravity="center">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="sans-serif-light"
+
+                                    android:gravity="left"
+                                    android:text="COINS"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintTop_toBottomOf="@+id/topl"
+                            android:src="@drawable/linesseprator"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/gifts_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/topl" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/purchaseButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_above="@+id/dummy_c"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:paddingRight="@dimen/_15sdp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/rounded_black_btn">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/sendgiftto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center"
+                            app:layout_constraintTop_toTopOf="@id/purchaseButton"
+                            app:layout_constraintBottom_toBottomOf="@id/purchaseButton"
+                            android:text="Send Gift"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold"
+
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/dummy_c"
+
+                        android:layout_alignParentBottom="true"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"/>
+
+                </RelativeLayout>
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

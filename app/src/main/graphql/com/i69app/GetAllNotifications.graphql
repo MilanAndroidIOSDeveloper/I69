@@ -1,0 +1,26 @@
+query GetAllNotification($first: Int!, $after: String!) {
+    notifications(first: $first, after: $after) {
+        pageInfo {
+            startCursor
+            hasPreviousPage
+            hasNextPage
+            endCursor
+        }
+        edges {
+            node {
+                id
+                notificationSetting {
+                    title
+                }
+
+                createdDate
+                data
+                notificationBody
+                priority
+
+            }
+            cursor
+        }
+    }
+}
+

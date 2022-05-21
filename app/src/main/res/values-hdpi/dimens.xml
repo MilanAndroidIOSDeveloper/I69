@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- search unlock-->
+    <dimen name="search_unlock_title_margin_top">6dp</dimen>
+
+    <!-- menu items-->
+    <dimen name="menu_item_button_height">60dp</dimen>
+    <dimen name="menu_item_top_margin">13dp</dimen>
+
+</resources>

@@ -1,0 +1,34 @@
+mutation CommentReplyOnMoment($commentDescription: String!,$momentId: ID!,$replyTo: String!)
+{
+    commentMoment(commentDescription: $commentDescription,momentId: $momentId, replyTo: $replyTo )
+    {
+        comment
+        {
+            id
+            pk
+            commentDescription
+            momemt
+            {
+                id
+                pk
+                like
+                comment
+            }
+            user
+            {
+                id
+                username
+                email
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+

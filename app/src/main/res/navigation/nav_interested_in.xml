@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_interested_in"
+    app:startDestination="@id/searchInterestedInFragment">
+
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="com.i69app.ui.screens.main.coins.PurchaseFragment"
+        android:label="@string/buy_coins"
+        tools:layout="@layout/fragment_purchase" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.i69app.ui.screens.main.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_blockedUsersFragment"
+            app:destination="@id/blockedUsersFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/blockedUsersFragment"
+        android:name="com.i69app.ui.screens.main.settings.BlockedUsersFragment"
+        android:label="@string/blocked_accounts"
+        tools:layout="@layout/fragment_blocked_users_settings" />
+
+    <fragment
+        android:id="@+id/userMomentDetailsFragment"
+        android:name="com.i69app.ui.screens.main.moment.UserMomentDetailsFragment"
+        android:label="@string/moment"
+        tools:layout="@layout/fragment_user_moment_details" />
+
+
+    <fragment
+        android:id="@+id/messengerListFragment"
+        android:name="com.i69app.ui.screens.main.messenger.list.MessengerListFragment"
+        android:label="@string/messages"
+        tools:layout="@layout/fragment_messenger_list">
+
+        <action
+            android:id="@+id/action_messengerListFragment_to_messengerChatFragment"
+            app:destination="@id/messengerChatFragment"
+            app:popUpTo="@+id/searchResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/messengerChatFragment"
+        android:name="com.i69app.ui.screens.main.messenger.chat.MessengerChatFragment"
+        android:label="@string/messages"
+        tools:layout="@layout/fragment_messenger_chat">
+
+        <action
+            android:id="@+id/messengerUserProfileAction"
+            app:destination="@id/userProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/messengerChatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/messengerNewChatFragment"
+        android:name="com.i69app.ui.screens.main.messenger.chat.MessengerNewChatFragment"
+        android:label="@string/messages"
+        tools:layout="@layout/fragment_messenger_chat">
+
+        <action
+            android:id="@+id/messengerUserProfileAction"
+            app:destination="@id/userProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/messengerNewChatFragment" />
+
+        <action
+            android:id="@+id/action_to_userGiftsFragment"
+            app:destination="@+id/giftsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/userProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.i69app.profile.UserProfileFragment"
+        android:label="@string/my_profile"
+        tools:layout="@layout/fragment_user_profile">
+        <action
+            android:id="@+id/action_userProfileFragment_to_userGiftsFragment"
+            app:destination="@+id/userGiftsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/userProfileFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_userEditProfileFragment"
+            app:destination="@+id/userEditProfileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/userProfileFragment" />
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/giftsFragment"
+        android:name="com.i69app.gifts.FragmentGifts"
+        android:label="@string/gifts"
+        tools:layout="@layout/fragment_gifts">
+    </fragment>
+
+    <fragment
+        android:id="@+id/userGiftsFragment"
+        android:name="com.i69app.gifts.FragmentUserGifts"
+        android:label="@string/gifts"
+        tools:layout="@layout/fragment_gifts">
+    </fragment>
+
+    <fragment
+        android:id="@+id/userEditProfileFragment"
+        android:name="com.i69app.ui.screens.main.profile.UserEditProfileFragment"
+        android:label="@string/profile_edit_title"
+        tools:layout="@layout/fragment_edit_profile" />
+
+
+    <fragment
+        android:id="@+id/searchInterestedInFragment"
+        android:name="com.i69app.ui.screens.main.search.SearchInterestedInFragment"
+        android:label="@string/interested_in"
+        tools:layout="@layout/fragment_search_interested_in">
+
+        <action
+            android:id="@+id/action_searchInterestedInFragment_to_searchGenderFragment"
+            app:destination="@+id/searchGenderFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/searchInterestedInFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchGenderFragment"
+        android:name="com.i69app.ui.screens.main.search.SearchGenderFragment"
+        android:label="@string/gender_label"
+        tools:layout="@layout/fragment_search_interested_in">
+        <action
+            android:id="@+id/action_searchGenderFragment_to_searchFiltersFragment"
+            app:destination="@id/searchFiltersFragment"
+            app:popUpTo="@+id/searchGenderFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFiltersFragment"
+        android:name="com.i69app.ui.screens.main.search.SearchFiltersFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search_filters">
+
+        <action
+            android:id="@+id/action_searchFiltersFragment_to_selectTagsFragment"
+            app:destination="@id/selectTagsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/searchFiltersFragment" />
+
+        <action
+            android:id="@+id/action_searchFiltersFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/searchFiltersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectTagsFragment"
+        android:name="com.i69app.ui.screens.main.search.SearchSelectTagsFragment"
+        android:label="@string/tags"
+        tools:layout="@layout/fragment_select_tags">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.i69app.ui.screens.main.search.result.SearchResultFragment"
+        android:label="@string/search_results"
+        tools:layout="@layout/fragment_search_result" />
+
+    <fragment
+        android:id="@+id/searchUserProfileFragment"
+        android:name="com.i69app.ui.screens.main.search.userProfile.SearchUserProfileFragment"
+        android:label="@string/my_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_userGiftsFragment"
+            app:destination="@+id/giftsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/userProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sendFirstMessengerChatFragment"
+        android:name="com.i69app.ui.screens.main.messenger.chat.SendFirstMessengerChatFragment"
+        android:label="SendFirstMessengerChatFragment"
+        tools:layout="@layout/fragment_messenger_chat" />
+
+    <fragment
+        android:id="@+id/userMomentsFragment"
+        android:name="com.i69app.ui.screens.main.moment.UserMomentsFragment"
+        android:label="@string/user_moments"
+        tools:layout="@layout/fragment_user_moments" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_userGiftsFragment"
+            app:destination="@+id/giftsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/userMomentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/momentsAddCommentFragment"
+        android:name="com.i69app.ui.screens.main.moment.momentcomment.MomentAddCommentFragment"
+        android:label="@string/moments_comment"
+        tools:layout="@layout/fragment_moments_addcomments" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_userGiftsFragment"
+            app:destination="@+id/giftsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/momentsAddCommentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newMomentsFragment"
+        android:name="com.i69app.ui.screens.main.moment.NewUserMomentFragment"
+        android:label="@string/new_user_moment"
+        tools:layout="@layout/fragment_user_moments" />
+
+
+    <action
+        android:id="@+id/globalUserToChatAction"
+        app:destination="@id/messengerChatFragment" />
+    <action
+        android:id="@+id/globalUserToNewChatAction"
+        app:destination="@id/messengerNewChatFragment" />
+
+    <action
+        android:id="@+id/action_go_to_interested_in"
+        app:destination="@id/interested_in_fragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/action_global_user_profile"
+        app:destination="@id/userProfileFragment"
+        app:popUpTo="@+id/searchInterestedInFragment" />
+
+    <action
+        android:id="@+id/messengerListAction"
+        app:destination="@id/messengerListFragment"
+        app:popUpTo="@+id/searchInterestedInFragment" />
+
+    <action
+        android:id="@+id/action_global_search_interested_in"
+        app:destination="@id/searchInterestedInFragment"
+        app:popUpTo="@+id/searchInterestedInFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/actionGoToPurchaseFragment"
+        app:destination="@id/purchaseFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/actionGoToSettingsFragment"
+        app:destination="@id/settingsFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_sendFirstMessengerChatFragment"
+        app:destination="@id/sendFirstMessengerChatFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_otherUserProfileFragment"
+        app:destination="@id/searchUserProfileFragment" />
+
+    <action
+        android:id="@+id/action_user_moments_fragment"
+        app:destination="@id/userMomentsFragment" />
+
+    <action
+        android:id="@+id/action_new_user_moment_fragment"
+        app:destination="@id/newMomentsFragment" />
+
+</navigation>

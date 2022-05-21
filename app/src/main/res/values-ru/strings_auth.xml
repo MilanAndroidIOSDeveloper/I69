@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    /// Login
+    <string name="sign_in_app_name">iSixtyNine</string>
+    <string name="sign_in_app_description">Соединяющие сердца</string>
+    <string name="connecting_dots">Соединяющие сердца</string>
+    <string name="facebook_login">Войти через Facebook</string>
+    <string name="twitter_login">Войти через Twitter</string>
+    <string name="google_login">Войти через Google</string>
+    <string name="terms_and_conditions">Условия и положения</string>
+
+    <!--tags-->
+    <string name="tags">Выберите теги</string>
+    <string name="next">Следующий</string>
+    <string name="select_tags_error_message">Пожалуйста, выберите как минимум 3 тега</string>
+
+
+    <!--about-->
+    <string name="about">Про</string>
+    <string name="about_description">Опиши себя</string>
+    <string name="about_next">Следующий</string>
+    <string name="about_error_message">Пожалуйста, расскажите о себя</string>
+
+    <!--    Gender-->
+    <string-array name="gender">
+        <item>мужчина</item>
+        <item>женщина</item>
+        <item>Предпочитаю не говорить</item>
+    </string-array>
+
+</resources>

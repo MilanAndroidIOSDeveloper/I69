@@ -1,0 +1,7 @@
+query GetFirstMessage{
+    firstmessage {
+        firstmessageContent
+        firstmessageTimestamp
+        unread
+    }
+}

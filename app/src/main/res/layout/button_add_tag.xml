@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/button_add_tag"
+    android:layout_width="@dimen/interest_button_height"
+    android:layout_height="@dimen/interest_button_height"
+    android:contentDescription="@string/app_name"
+    android:src="@drawable/drawable_add_button" />

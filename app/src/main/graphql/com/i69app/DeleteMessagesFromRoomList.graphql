@@ -1,0 +1,6 @@
+mutation DeleteMessagesFromRoomList($roomId: Int!){
+    deleteMessages(roomId:$roomId){
+        success
+        message
+    }
+}

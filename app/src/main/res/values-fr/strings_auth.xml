@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    /// Login
+    <string name="sign_in_app_name">iSixtyNine</string>
+    <string name="sign_in_app_description">Relient les Coeurs</string>
+    <string name="connecting_dots">Relient les Coeurs</string>
+    <string name="facebook_login">SE CONNECTER VIA FACEBOOK</string>
+    <string name="twitter_login">SE CONNECTER VIA  TWITTER</string>
+    <string name="google_login">SE CONNECTER VIA  GOOGLE</string>
+    <string name="terms_and_conditions">Termes and conditions</string>
+
+    <!--tags-->
+    <string name="interested_in_help">Veuillez sélectionner les catégories dans lesquelles vous souhaitez apparaître.</string>
+    <string name="tags">Sélectionner lesdits clés</string>
+    <string name="next">Suivant</string>
+
+    <!--about-->
+    <string name="select_tags_error_message">Veuillez sélectionner au moins 3 mots clés</string>
+    <string name="about">À propos</string>
+    <string name="about_description">Décrivez-vous</string>
+    <string name="about_next">Suivant</string>
+
+    <!--    Gender-->
+    <string-array name="gender">
+        <item>Masculin</item>
+        <item>Féminin</item>
+        <item>Je préfère ne rien dire</item>
+    </string-array>
+
+<!--    errors-->
+    <string name="photo_error">"Vous devez ajouter une photo. "</string>
+    <string name="name_cannot_be_empty">Le nom ne peut pas être vide.</string>
+    <string name="height_cannot_be_empty">La taille ne peut pas être vide.</string>
+    <string name="age_cannot_be_empty">L\'âge ne peut pas être vide.</string>
+    <string name="gender_cannot_be_empty">Le genre ne peut pas être vide.</string>
+    <string name="sign_in_failed">Échec de Connexion!</string>
+    <string name="something_went_wrong">Quelque chose s\'est mal passé !</string>
+
+</resources>

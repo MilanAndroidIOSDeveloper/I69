@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/rounded_interests_checked_btn" android:state_pressed="true" /> <!-- pressed -->
+    <!--    <item android:state_focused="true"-->
+    <!--        android:drawable="@drawable/rounded_interests_checked_btn"/> &lt;!&ndash; focused &ndash;&gt;-->
+    <item android:drawable="@drawable/rounded_interests_unchecked_btn" /> <!-- default -->
+</selector>

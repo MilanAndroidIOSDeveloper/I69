@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.i69app.ui.viewModels.SearchViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/searchToolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar_color"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/actionBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
+
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/back_new1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.2"
+                android:text="@string/search"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/clear_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:onClick="@{model.clearBtnClickListener::onClick}"
+                android:padding="16dp"
+                android:text="@string/clear"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/toolbar_action_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:id="@+id/scrollContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/personalExpand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/search_header_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seek_constraint_container">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/large_padding"
+                        android:layout_marginTop="@dimen/default_padding"
+                        android:layout_marginBottom="@dimen/default_padding"
+                        android:layout_weight="1"
+                        android:text="@string/personal_label"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold" />
+
+                    <com.i69app.ui.views.ToggleImageView
+                        android:id="@+id/togglePersonalExpand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_padding"
+                        android:tint="@color/colorPrimary"
+                        app:checkedDrawable="@drawable/ic_expand_less"
+                        app:uncheckedDrawable="@drawable/ic_expand" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/groupsExpand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/search_header_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintTop_toBottomOf="@+id/personal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/large_padding"
+                        android:layout_marginTop="@dimen/default_padding"
+                        android:layout_marginBottom="@dimen/default_padding"
+                        android:layout_weight="1"
+                        android:text="@string/groups_label"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold" />
+
+                    <com.i69app.ui.views.ToggleImageView
+                        android:id="@+id/toggleGroupsExpand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_padding"
+                        android:tint="@color/colorPrimary"
+                        app:checkedDrawable="@drawable/ic_expand_less"
+                        app:uncheckedDrawable="@drawable/ic_expand" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/seek_constraint_container"
+                    android:layout_width="0dp"
+                    android:layout_height="360dp"
+                    app:layout_constraintBottom_toTopOf="@+id/personalExpand"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/search_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_black_btn"
+                        android:elevation="3dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:onClick="@{model.searchBtnClickListener::onClick}"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:singleLine="true"
+                        android:text="@string/search"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_bottom_guideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/button_top_guideline"
+                        app:layout_constraintWidth_percent=".58" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/labelMaxDist"
+                        style="@style/MediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/maximum_distance"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/start_guideline_seek"
+                        app:layout_constraintTop_toBottomOf="@+id/search_btn" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/maxDistanceLabel"
+                        style="@style/BoldMediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:text="@{String.valueOf(Math.round(model.maxDistanceValue))}"
+                        app:layout_constraintBottom_toBottomOf="@id/labelMaxDist"
+                        app:layout_constraintRight_toLeftOf="@id/miLabel"
+                        tools:text="150" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/miLabel"
+                        style="@style/MediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="1dp"
+                        android:text="@string/miles"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@id/maxDistanceLabel"
+                        app:layout_constraintEnd_toEndOf="@+id/end_guideline_seek" />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/labelAgeRange"
+                        style="@style/MediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:text="@string/age_range"
+                        app:layout_constraintStart_toStartOf="@+id/labelMaxDist"
+                        app:layout_constraintTop_toBottomOf="@id/maxDistRangeSeekBar" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ageRangeLeft"
+                        style="@style/BoldMediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(Math.round(model.ageRangeLeft))}"
+                        app:layout_constraintBottom_toBottomOf="@id/labelAgeRange"
+                        app:layout_constraintRight_toLeftOf="@id/ageRangeDefis" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ageRangeDefis"
+                        style="@style/BoldMediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        app:layout_constraintBottom_toBottomOf="@id/ageRangeLeft"
+                        app:layout_constraintRight_toLeftOf="@id/ageRangeRight"
+                        app:layout_constraintTop_toTopOf="@id/ageRangeLeft" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ageRangeRight"
+                        style="@style/BoldMediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@{String.valueOf(Math.round(model.ageRangeRight))}"
+                        app:layout_constraintBottom_toBottomOf="@id/ageRangeLeft"
+                        app:layout_constraintEnd_toEndOf="@+id/miLabel" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/searchContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/background_main_theme_gradient"
+                        app:layout_constraintBottom_toTopOf="@+id/search_bottom_guideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/interestsIcon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="16dp"
+                            android:contentDescription="@string/app_name"
+                            android:paddingTop="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_search_inactive"
+                            app:tint="@color/white" />
+
+                        <EditText
+                            android:id="@+id/keyInput"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="32dp"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif"
+                            android:hint="@string/enter_keywords_interests"
+                            android:singleLine="true"
+                            android:textColor="@color/search_text"
+                            android:textColorHint="@color/search_text"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/interestsIcon"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/start_guideline_seek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.14" />
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/end_guideline_seek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.86" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/button_top_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.24" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/search_bottom_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.30" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/button_bottom_guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.36" />
+
+                    <com.i69app.ui.views.rangeseekbar.RangeSeekBar
+                        android:id="@+id/maxDistRangeSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/miLabel"
+                        app:layout_constraintStart_toStartOf="@+id/labelMaxDist"
+                        app:layout_constraintTop_toBottomOf="@id/labelMaxDist"
+                        app:rsb_indicator_margin="100dp"
+                        app:rsb_max="2501"
+                        app:rsb_min="25"
+                        app:rsb_mode="single"
+                        app:rsb_progress_color="@color/search_seek_bar_progress"
+                        app:rsb_progress_default_color="@color/search_seek_bar_default"
+                        app:rsb_range_interval="1"
+                        app:rsb_thumb_drawable="@drawable/ic_notification_circle"
+                        app:rsb_thumb_scale_ratio="1.5"
+                        app:rsb_thumb_size="18dp"
+                        app:singleValue="@={model.maxDistanceValue}" />
+
+                    <com.i69app.ui.views.rangeseekbar.RangeSeekBar
+                        android:id="@+id/ageRangeSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/miLabel"
+                        app:layout_constraintStart_toStartOf="@+id/labelMaxDist"
+                        app:layout_constraintTop_toBottomOf="@id/labelAgeRange"
+                        app:rsb_min="18"
+                        app:leftValue="@={model.ageRangeLeft}"
+                        app:rightValue="@={model.ageRangeRight}"
+                        app:rsb_indicator_margin="100dp"
+                        app:rsb_mode="range"
+                        app:rsb_progress_color="@color/search_seek_bar_progress"
+                        app:rsb_progress_default_color="@color/search_seek_bar_default"
+                        app:rsb_range_interval="1"
+                        app:rsb_thumb_drawable="@drawable/ic_notification_circle"
+                        app:rsb_thumb_scale_ratio="1.5"
+                        app:rsb_thumb_size="18dp" />
+
+                    <!--<com.google.android.material.slider.RangeSlider
+                        android:id="@+id/seekbar_accent_light_outline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:valueFrom="0.0"
+                        android:valueTo="100.0"
+                        app:values="@array/initial_slider_values"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ageRangeSeekBar" />-->
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!-- PERSONAL -->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.86" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.14" />
+
+
+                <!-- GROUPS -->
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/personal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:el_duration="300"
+                    app:el_expanded="false"
+                    app:el_parallax="0.5"
+                    app:layout_constraintEnd_toEndOf="@+id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/personalExpand">
+
+                    <include
+                        android:id="@+id/personalLayoutItem"
+                        layout="@layout/layout_personal_item"
+                        app:model="@{model}" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/groups"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    app:el_duration="300"
+                    app:el_expanded="false"
+                    app:el_parallax="0.5"
+                    app:layout_constraintEnd_toEndOf="@+id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/groupsExpand">
+
+                    <include
+                        layout="@layout/layout_group_item"
+                        app:model="@{model}" />
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

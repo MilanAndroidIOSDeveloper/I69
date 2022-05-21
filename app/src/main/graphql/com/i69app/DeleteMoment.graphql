@@ -1,0 +1,26 @@
+mutation deletemoment($momentId: ID!)
+{
+    deleteMoment(id: $momentId)
+    {
+        moment
+        {
+            pk
+            id
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

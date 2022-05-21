@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    /// Login
+    <string name="connecting_dots">Connecting Hearts</string>
+    <string name="facebook_login">Login with Facebook</string>
+    <string name="twitter_login">Login with Twitter</string>
+    <string name="google_login">Login with Google</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+
+
+    <string name="server_client_id" translatable="false">37873016176-m7aloihs6revp8b8ckc9mq0vmf6kk57o.apps.googleusercontent.com</string>
+    <string name="facebook_app_id" translatable="false">1610603699070152</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1610603699070152</string>
+    <string name="facebook_client_token" translatable="false">4a72c22c6062049e2fac9d3c7e35601e</string>
+
+    <!--interested in-->
+    <string name="interested_in">Interested in</string>
+    <string name="serious_relationship">Serious Relationship</string>
+    <string name="casual_dating">Casual dating</string>
+    <string name="new_friends">NEW FRIENDS</string>
+    <string name="roommates_2_lines">ROOM\nMATES</string>
+    <string name="roommates">ROOMMATES</string>
+    <string name="business_contacts">BUSINESS CONTACTS</string>
+    <string name="man">MAN</string>
+    <string name="woman">WOMAN</string>
+    <string name="both">BOTH</string>
+    <string name="save">SAVE</string>
+    <string name="interested_in_error_message">Please select what your search results should be interested in</string>
+    <string name="interested_in_help">Choose categories which you want to be show in.</string>
+
+
+    <!--about-->
+    <string name="about">About</string>
+    <string name="about_description">Describe yourself</string>
+    <string name="about_next">Next</string>
+    <string name="about_error_message">Please describe yourself a bit</string>
+
+
+    <!--tags-->
+    <string name="tags">Select tags</string>
+    <string name="next">Next</string>
+    <string name="select_tags_error_message">Please select at least 3 tags</string>
+
+
+<!--    Complete Profile-->
+<!--    Gender-->
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer Not to Say</item>
+    </string-array>
+
+
+    <!--welcome-->
+    <string name="welcome_title">Welcome to</string>
+    <string name="welcome_hint">You can use iSixtyNine\nto search for:</string>
+    <string name="welcome_relationships">RELATIONSHIP</string>
+    <string name="welcome_text">To initiate a conversation - just search for a user and send a message</string>
+    <string name="welcome_button">Let\'s Go !!! CLICK HERE TO START</string>
+
+
+<!--    error text-->
+    <string name="photo_error">You must add a photo.</string>
+    <string name="max_photo_login_error">You cannot add more than 3 photos at Login.</string>
+    <string name="name_cannot_be_empty">Name cannot be empty.</string>
+    <string name="gender_cannot_be_empty">Gender cannot be empty.</string>
+    <string name="age_cannot_be_empty">Age cannot be empty.</string>
+    <string name="height_cannot_be_empty">Height cannot be empty.</string>
+    <string name="sign_in_failed">Sign In Failed!</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="select_option_error">Please Select at Least One Option.</string>
+
+
+</resources>

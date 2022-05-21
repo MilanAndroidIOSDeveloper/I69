@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.i69app.ui.views.chipcloud.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/material_chip_height"
+    android:background="@drawable/rounded_black_btn"
+    android:fontFamily="sans-serif"
+    android:gravity="center"
+    android:minWidth="50dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:textAllCaps="false"
+    android:textColor="@color/chip"
+    android:textSize="@dimen/default_textsize"
+    android:textStyle="bold"
+    tools:text="Chip Test" />

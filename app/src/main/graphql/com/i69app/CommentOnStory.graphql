@@ -1,0 +1,35 @@
+mutation CommentOnStory($commentDescription: String!,$objectId: Int!,$objectType: String!)
+{
+    genericComment(commentDescription:$commentDescription, objectId: $objectId ,objectType: $objectType)
+    {
+        genericComment {
+            id
+            pk
+            objectId
+            commentDescription
+            createdDate
+
+            user {
+                fullName
+                avatar {
+                    id
+                    url
+
+                }
+                avatarIndex
+                avatarPhotos {
+                    url
+                    id
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

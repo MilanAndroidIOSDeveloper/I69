@@ -1,0 +1,6 @@
+mutation DeleteBroadcastFromRoomList{
+    deleteBroadcast {
+        success
+        message
+    }
+}

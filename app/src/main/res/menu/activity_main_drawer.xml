@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/groupSearch">
+        <item
+            android:id="@+id/nav_item_search"
+            android:icon="@drawable/ic_search_active"
+            android:title="@string/search_drawer" />
+    </group>
+
+    <group android:id="@+id/groupContactUs">
+        <item
+            android:id="@+id/nav_item_contact"
+            android:icon="@drawable/ic_email"
+            android:title="@string/contact_us" />
+    </group>
+
+    <group android:id="@+id/groupBuyCoin">
+        <item
+            android:id="@+id/nav_item_buy_coin"
+            android:icon="@drawable/icon_buy_chat_coins_yellow"
+            android:title="@string/buy_coins" />
+    </group>
+
+    <group android:id="@+id/groupPrivacy">
+        <item
+            android:id="@+id/nav_item_privacy"
+            android:icon="@drawable/icon_privacy"
+            android:title="@string/privacy_drawer" />
+    </group>
+
+    <group android:id="@+id/groupSettings">
+        <item
+            android:id="@+id/nav_item_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+    </group>
+
+</menu>
